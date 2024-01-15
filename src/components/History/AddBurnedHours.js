@@ -93,7 +93,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
           <Modal.Title>Add BurnedHours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb3">
             <Form.Label>Description</Form.Label>
             <Form.Control
               type="text"
@@ -107,7 +107,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
 
 
 {/*  to do logic in form */}
-          <Form.Group className="mt-2 mb-3">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>TODO</Form.Label>
             <Form.Select
               name="todo"
@@ -128,7 +128,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
 
           <div className="text-secondary bg-info">(OR) - select only one option</div>
 {/*  activity logic in form */}
-          <Form.Group className="mb-2">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Activity</Form.Label>
             <Form.Select
               name="activity"
@@ -148,7 +148,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
             </Form.Select>
           </Form.Group>
 {/* time dynamic If you select a TO DO task or an actually activity time is computed based on what is chosen */}
-          <Form.Group className="mb-3">
+          <Form.Group className="mb3">
             <Form.Label>
               Maximum time limit: {" "}
               <span className="text-primary">{parseInt(getMaximumTime())} - hours</span>

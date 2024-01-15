@@ -12,7 +12,7 @@ const AddHoursContainer = () => {
       <div className="d-flex  justify-content-center">
       <h5>Insert your time in here:</h5>
         <button
-          className="mngmnt-btn"
+          className="container .register mngmnt-btn"
           onClick={() => setShowAddHoursModal(true)}
         >
           <CalendarClock className={"me-1 me-md-2"} />

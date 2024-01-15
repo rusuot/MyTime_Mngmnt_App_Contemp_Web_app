@@ -183,7 +183,7 @@ const UpdateBurnedHours = ({
 
 
 
-          <Form.Group className="mt-2 mb-3">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>TODO</Form.Label>
             <Form.Select
               name="todoId"
@@ -204,7 +204,7 @@ const UpdateBurnedHours = ({
 
           <div className="text-secondary bg-info">(OR) - select only one option</div>
 
-          <Form.Group className="mb-2">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Activity</Form.Label>
             <Form.Select
               name="activity"

@@ -32,7 +32,7 @@
 
 .container .register {
   padding: 50px;
-  background-color: #a6e1f8;
+  background-color: #4fc8f8;
   border-radius: 750px;
   display: flex;
   /* flex-direction:row; */
@@ -41,6 +41,25 @@
   justify-content: center;
   align-items: center;
   margin: 0.1rem;
+}
+
+
+.container .register .mngmnt-btn{
+  padding: 50px;
+  background-color: #60dbf9;
+  border-radius: 750px;
+  display: flex;
+  /* flex-direction:row; */
+  flex-direction:column;
+  /* flex-direction:row-reverse; */
+  justify-content: center;
+  align-items: center;
+  margin: 0.1rem;
+}
+
+.container .register .mngmnt-btn:hover{
+
+  background-color: #3bc1f6;
 }
 
 

@@ -22,8 +22,6 @@ const OneHistoryList = ({ filter }) => {
     document.body.clientHeight, document.documentElement.clientHeight
   );
 
-
-
   const HistComp = ({ idx, onehistory }) => {
     return (
       <
@@ -42,17 +40,12 @@ const OneHistoryList = ({ filter }) => {
 
   return (
     <>
-
-
       <div className="scroll-container">
         {error && toast.error(error)}
         {!documents ? (
           <div className="text-center">Loading..</div>
-
         ) : documents?.length > 0 ? (
-
           documents.map((onehistory, idx) => {
-
             if (
               !filter ||
               (filter?.activity === "#all" && filter?.todo === "all")
@@ -60,7 +53,6 @@ const OneHistoryList = ({ filter }) => {
               // <ul>
               return <HistComp key={idx} onehistory={onehistory} />;
               // </ul>
-
             } else if (
               (filter.activity === "#all" ||
                 filter.activity === onehistory.activity) &&
@@ -70,14 +62,8 @@ const OneHistoryList = ({ filter }) => {
             } else {
               return <></>;
             }
-
-
-
-
           }
           )
-          
-
         ) : (
           <div className="text-center fw-bold">No History.</div>
         )}

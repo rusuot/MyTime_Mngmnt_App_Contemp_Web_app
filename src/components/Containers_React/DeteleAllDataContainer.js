@@ -54,7 +54,7 @@ const DeteleAllDataContainer = () => {
         return toast.error(activityResponse.error);
       }
 
-      toast.success("All history, mytodos and activities are removed");
+      toast.success("You have selected the option to clean all data from DB. Action was successfully completed");
     } else {
       toast.error(error + " " + todoError + " " + activityError);
     }
@@ -72,6 +72,7 @@ const DeteleAllDataContainer = () => {
     >
       Remove all my timings and start again
           </button>
+           {/* add icon for delete */}
           <DeleteIcon></DeleteIcon>
     </h6>
     </div>

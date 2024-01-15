@@ -51,7 +51,7 @@ const AddHours = ({ show, handleClose }) => {
           <Modal.Title>Add Free Hours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Group className="mb-3">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Day of week</Form.Label>
             <Form.Control
               type="text"
@@ -62,8 +62,8 @@ const AddHours = ({ show, handleClose }) => {
               placeholder="For e.g. Monday"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="max">
-            <Form.Label>Insert you estimated free hours</Form.Label>
+          <Form.Group className="container .register mngmnt-btn" controlId="max">
+            <Form.Label>Insert youre estimated free hours</Form.Label>
             <Form.Control
               type="number"
               required

@@ -78,7 +78,7 @@ const UpdateFreeHours = ({
           <Modal.Title>Update FreeHours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Group className="mb-3">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Day of week</Form.Label>
             <Form.Control
               type="text"
@@ -90,7 +90,7 @@ const UpdateFreeHours = ({
             />
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Hours (you need to insert a no grater than:{" "} 
               <span className="text-primary">hours{parseInt(getMinLimit())}</span> no is computed based on what is burned already)</Form.Label>
             <Form.Control

@@ -3,21 +3,22 @@ import Moment from "react-moment";
 import React from "react";
 
 const OneHistory = ({
+
   data: { description, amount, todo, activity, createdAt }, onClick,
 }) => {
   return (
     <div className="hist-todo  px-1" onClick={() => onClick()} >
-      <div className="d-flex flex-column w-100">
-        <h6 className="fw-bold heading my-3">
+      <div className="text-end">
+        <h6 className="text-end">
         <span>
-        {activity === "#yourfreehours" ? <h5> Here you have added free hours</h5> : <h5> Scheduled/Burned hours </h5>}
+        {activity === "#yourfreehours" ? <h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Here you have added free hours</h5> : <h5 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Scheduled/Burned hours </h5>}
       </span>
-
-
 
           <span
             className={
-              "ms-1 fw-bold " +
+              "text-end" +
               (activity === "#yourfreehours" ? "text-success bg-info"  : "text-secondary bg-info")
             }
           >
@@ -33,9 +34,8 @@ const OneHistory = ({
           </span>
         </h6>
 
-
-        <div className="d-flex align-items-center">
-          <p className="trans-description m-0">
+        <div className="text-end">
+          <p className="text-end">
             {description.length >= 45 ? (
               <>
                 {description.substring(0, 45)}<span className="text-secondary">...</span>
@@ -46,23 +46,36 @@ const OneHistory = ({
                 <Moment format="'LL'">
                   {createdAt.toDate()}
                 </Moment>
-                }</h5>
+                } 
+                </h5>
               
             )}
-                      
-          </p>
-        </div>
-        <p className="hist-todo m-0 text-primary">
-          TypeOfSelection---
-          {todo.length >=
-          35 ? (
+        <h6 className="text-end"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         Selection Type: &nbsp;&nbsp;&nbsp;
+          {todo.length >= 45 ? (
             <>
-              {todo.substring(0, 35)}<span className="text-primary">...</span>
+            <>
+              {todo.substring(0, 45)}<span className="text-end">...</span>
+              </>
             </>
           ) : (
             todo
           )}
-        </p>
+        </h6>   
+          </p>
+        </div>
       </div>
     </div>
   );

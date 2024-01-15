@@ -16,7 +16,7 @@ const AddBurnedHoursContainer = () => {
       <div className="d-flex justify-content-center">
       <h5>Insert burned hours in here:</h5>
         <button
-          className="ms-2 ms-lg-3 mngmnt-btn"
+          className="container .register mngmnt-btn"
           onClick={() => setShowAddBurnedHoursModal(true)}
         >
           <Troubleshoot className={"me-1 me-md-2"} />

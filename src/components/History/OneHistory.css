@@ -88,8 +88,38 @@
     border-radius: 22px;
     /* border-style: dashed; */
     margin: 3rem;
-
+    align-items: right;
 }
+
+
+
+.container .register {
+    padding: 50px;
+    background-color: #a6e1f8;
+    border-radius: 750px;
+    display: flex;
+    /* flex-direction:row; */
+    flex-direction:column;
+    /* flex-direction:row-reverse; */
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem;
+  }
+  
+  
+  .container .register .mngmnt-btn{
+    padding: 50px;
+    background-color: #a6e1f8;
+    border-radius: 750px;
+    display: flex;
+    /* flex-direction:row; */
+    flex-direction:column;
+    /* flex-direction:row-reverse; */
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem;
+  }
+
 
 /* hover over each item in history */
 .hist-todo:hover {
@@ -109,6 +139,7 @@
 
 .hist-description {
     font-family: 'ADLaM Display', sans-serif;
+    align-items: end;
 }
 
 @media (min-width: 1024px) {

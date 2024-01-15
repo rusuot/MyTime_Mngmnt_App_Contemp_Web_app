@@ -1,9 +1,7 @@
 import React from "react";
-import ColumnB from "./ColumnB";
 import ImageContainer from "./ImageContainer";
-import ColumnA from "./ColumnA";
-// import ColumnA1 from "./ColumnA1";
-import ColumnC from "./ColumnC";
+import InfoColumn from "./InfoColumn";
+import PercentagePrecisionColumn from "./PercentagePrecisionColumn";
 
 const Container = () => {
   return (
@@ -11,9 +9,8 @@ const Container = () => {
       <ImageContainer />
       {/* <div class="image">
 </div> */}
-      <ColumnA />
-      {/* <ColumnB /> */}
-      <ColumnC />
+      <InfoColumn />
+      <PercentagePrecisionColumn />
       {/* <ColumnA1 /> */}
 
 

@@ -19,31 +19,33 @@ const Profile = () => {
   const [form, setForm] = useState({
     username: user.displayName,
     email: user.email,
-    newPassword: "",
+    passwordUpdate: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (form.newPassword.length > 0 && form.newPassword.length < 6) {
-      toast.error("Password should be of 6 characters!?");
-      return;
-    }
-
     const updates = {};
 
+    if (form.passwordUpdate.length > 0 && 
+      form.passwordUpdate.length < 5) {
+      toast.error("Hint: Password inserted has less than 5 characters");
+      return;
+    }
+// username check
     if (form.username !== user.displayName) {
       updates.displayName = form.username;
     }
-
+// email check
     if (form.email !== user.email) {
       updates.email = form.email;
     }
 
-    if (form.newPassword.length >= 6) {
-      updates.password = form.newPassword;
+    // password length check
+    if (form.passwordUpdate.length >= 6) {
+      updates.password = form.passwordUpdate;
     }
 
+    // if all fields are as the current saved in db, display toast okay
     if (!updates.displayName && !updates.email && !updates.password) {
       return toast.success("No Updates!");
     }
@@ -51,14 +53,15 @@ const Profile = () => {
     const error = await UpdateProfile(updates);
 
     if (error) {
-      const errorMsg = getErrorretrieveErrorMessageMessage(error);
-      if (errorMsg === "requires-recent-login") {
-        return toast.error("Please re-login to update your user info. (Security Verifications.)");
+      const MessageError = getErrorretrieveErrorMessageMessage(error);
+      if (MessageError === "requires-recent-login") {
+        // for the case the user just needs re login 
+        return toast.error("Due to security verifications, you need to re login - requires-recent-login error message)");
       }
-      return toast.error(retrieveErrorMessage(errorMsg));
+      return toast.error(retrieveErrorMessage(MessageError));
     }
 
-    setForm({ ...form, newPassword: "" });
+    setForm({ ...form, passwordUpdate: "" });
     toast.success("UserInfo updated successfully.");
   };
 
@@ -71,7 +74,7 @@ const Profile = () => {
       <Form onSubmit={handleSubmit} className="profile-form shadow">
         <h3 className="text-center fw-bold mb-3">My UserInfo</h3>
         <p className="m-0 text-center mb-3">
-          Current data user logged in:
+          Your current data is:
         </p>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Username</Form.Label>
@@ -98,14 +101,14 @@ const Profile = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>New Password</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Please change your current password"
+            placeholder="If you want, insert in here a new password"
             autoComplete="current-password webauthn"
             onChange={handleChange}
-            name="newPassword"
-            value={form.newPassword}
+            name="passwordUpdate"
+            value={form.passwordUpdate}
           />
         </Form.Group>
 

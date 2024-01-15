@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import { useSignup } from "../../authReactH/Signup";
+import { userSignup } from "../../authReactH/Signup";
 import { retrieveErrorMessage } from "Functions/functions";
 
 const Signup = () => {
@@ -18,7 +18,7 @@ const Signup = () => {
     confirmPassword: "",
   });
 
-  const { signup, isLoading } = useSignup();
+  const { signup, isLoading } = userSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

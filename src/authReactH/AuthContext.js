@@ -1,6 +1,6 @@
-// imports
-import { GlobalContext } from "./myAuthContext";
+// imports react & auth context
 import { useContext } from "react";
+import { GlobalContext } from "./myAuthContext";
 
 //return auth_context
 export const useThisAuthContext  = () => {

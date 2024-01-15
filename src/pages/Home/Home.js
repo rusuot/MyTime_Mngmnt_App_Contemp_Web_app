@@ -1,19 +1,28 @@
 import HomeMyTODOs from "components/MyTODOs/HomeMyTODOs";
 import HomeHistory from "components/History/HomeHistory";
 import Container from "../../components/Containers_React/Container";
-import Container11 from "../../components/Containers_React/Container11";
-import ColumnA1 from "../../components/Containers_React/ColumnA1";
-import Container00 from "../../components/Containers_React/Container00";
+import ContainerMyName from "../../components/Containers_React/ContainerMyName";
+import DeteleAllDataContainer from "../../components/Containers_React/DeteleAllDataContainer";
+import OpenPieChartsContainer from "../../components/Containers_React/OpenPieChartsContainer";
+import HelloUserContainer from "../../components/Containers_React/HelloUserContainer";
+import RegisterOrBurnHoursContainer from "../../components/Containers_React/RegisterOrBurnHoursContainer";
+import AddHoursContainer from "../../components/Containers_React/AddHoursContainer";
+import AddBurnedHoursContainer from "../../components/Containers_React/AddBurnedHoursContainer";
 
 const Home = () => {
   return (
     <div className="home">
-      <Container00 />
+      <HelloUserContainer />
       <Container />
-      <ColumnA1 />
+      <RegisterOrBurnHoursContainer/>
+      <AddHoursContainer/>
+      <AddBurnedHoursContainer/>
+      <OpenPieChartsContainer />
+      <DeteleAllDataContainer />
       <HomeHistory />
       <HomeMyTODOs />
-      <Container11 />
+      <ContainerMyName />
+
 
     </div>
   );

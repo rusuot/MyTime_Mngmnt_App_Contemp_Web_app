@@ -7,7 +7,6 @@ import { useEffect, useReducer, createContext} from "react";
 
 
 // let isAuthReady = false
-
 // firebase.auth().onAuthStateChanged((user) => {
 //   store.commit('setUser', user)
 

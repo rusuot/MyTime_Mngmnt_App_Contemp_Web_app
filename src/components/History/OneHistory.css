@@ -1,4 +1,5 @@
 /* history stuff & history hovers */
+/*  added scroll */
 
 .history-header {
     display: flex;
@@ -85,8 +86,8 @@
 .hist-todo {
     font-size: 12px;
     border-radius: 22px;
-    border-style: dashed;
-    margin: 2rem;
+    /* border-style: dashed; */
+    margin: 3rem;
 
 }
 
@@ -94,7 +95,7 @@
 .hist-todo:hover {
     font-size: 12px;
     border-radius: 22px;
-    border-style: dashed;
+    border-style:inset;
     background-color: #aedbfc; 
     color: rgb(3, 8, 10); 
 }

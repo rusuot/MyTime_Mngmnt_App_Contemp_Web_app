@@ -181,22 +181,7 @@ const UpdateBurnedHours = ({
             />
           </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>
-              Spend Amount (Max-Limit:{" "}
-              <span className="text-primary">${parseInt(getMaximumTime())}</span>)
-            </Form.Label>
-            <Form.Control
-              type="number"
-              required
-              min={1}
-              max={getMaximumTime()}
-              name="amount"
-              value={form.amount}
-              placeholder="Enter amount..."
-              onChange={handleChange}
-            />
-          </Form.Group>
+
 
           <Form.Group className="mt-2 mb-3">
             <Form.Label>TODO</Form.Label>
@@ -217,7 +202,7 @@ const UpdateBurnedHours = ({
             </Form.Select>
           </Form.Group>
 
-          <div className="text-danger">(OR) - select only one option</div>
+          <div className="text-secondary bg-info">(OR) - select only one option</div>
 
           <Form.Group className="mb-2">
             <Form.Label>Activity</Form.Label>
@@ -228,7 +213,7 @@ const UpdateBurnedHours = ({
               disabled={form.todoId}
             >
               <option value="">Update burned hours</option>
-              <option value="#realspenthours">RealSpentHours</option>
+              <option value="#realburnedhours">RealBurnedHours</option>
               {activities?.map((activity, idx) => {
                 return (
                   <option value={activity.code} key={idx}>
@@ -239,7 +224,22 @@ const UpdateBurnedHours = ({
             </Form.Select>
           </Form.Group>
 
-
+          <Form.Group className="mb-3">
+            <Form.Label>
+              Scheduled or burned: (your limit is:{" "}
+              <span className="text-primary">{parseInt(getMaximumTime())} hours</span>)
+            </Form.Label>
+            <Form.Control
+              type="number"
+              required
+              min={1}
+              max={getMaximumTime()}
+              name="amount"
+              value={form.amount}
+              placeholder="Enter amount..."
+              onChange={handleChange}
+            />
+          </Form.Group>
 
           <div className="d-flex">
             <button

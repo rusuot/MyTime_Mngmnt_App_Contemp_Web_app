@@ -82,23 +82,7 @@ const AddTODO = ({ show, handleClose }) => {
               value={form.title}
               placeholder="For example: QHO 640 study"
             />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>
-            Insert your desired hours (Your max limit hours is:{" "}
-              <span className="text-primary">{currentAvailableHours} - hours </span>)
-            </Form.Label>
-            <Form.Control
-              type="number"
-              required
-              min={1}
-              max={currentAvailableHours}
-              name="mngmntAmount"
-              onChange={handleChange}
-              value={form.mngmntAmount}
-              placeholder="Insert no of hours"
-            />
-          </Form.Group>
+
 
           <Form.Label>Select your todo activity: </Form.Label>
           <Form.Select
@@ -116,6 +100,24 @@ const AddTODO = ({ show, handleClose }) => {
               );
             })}
           </Form.Select>
+
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>
+            Insert your desired hours (Your max limit hours is:{" "}
+              <span className="text-primary">{currentAvailableHours} - hours </span>)
+            </Form.Label>
+            <Form.Control
+              type="number"
+              required
+              min={1}
+              max={currentAvailableHours}
+              name="mngmntAmount"
+              onChange={handleChange}
+              value={form.mngmntAmount}
+              placeholder="Insert no of hours"
+            />
+          </Form.Group>
 
           <div className="d-flex">
             <button

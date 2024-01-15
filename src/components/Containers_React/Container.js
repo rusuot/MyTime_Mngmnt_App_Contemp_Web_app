@@ -1,6 +1,6 @@
 import React from "react";
 import ColumnB from "./ColumnB";
-import HelloUser from "./HelloUser";
+import ImageContainer from "./ImageContainer";
 import ColumnA from "./ColumnA";
 // import ColumnA1 from "./ColumnA1";
 import ColumnC from "./ColumnC";
@@ -8,11 +8,11 @@ import ColumnC from "./ColumnC";
 const Container = () => {
   return (
     <div className="container mt-1 mb-4 shadow">
-      <HelloUser />
+      <ImageContainer />
       {/* <div class="image">
 </div> */}
       <ColumnA />
-      <ColumnB />
+      {/* <ColumnB /> */}
       <ColumnC />
       {/* <ColumnA1 /> */}
 

@@ -5,26 +5,28 @@ export const ComputeTiming = () => {
 
   const { documents: mytodos } = Collection("mytodos", ["createdAt", "desc"]);
 
-  let freehoursAvailableHours = 0;
-  let realspenthoursAvailableHours = 0;
+  // initialize with 0 hours by default
+  // current & free & real spend or burned hours
   let currentAvailableHours = 0;
+  let freehoursAvailableHours = 0;
+  let realburnedhoursAvailableHours = 0;
 
   documents?.forEach((doc) => {
     if (doc.activity === "#yourfreehours") {
       freehoursAvailableHours += parseInt(doc.amount);
     } else {
       if (doc.todo === "no-todo") {
-        realspenthoursAvailableHours += parseInt(doc.amount);
+        realburnedhoursAvailableHours += parseInt(doc.amount);
       }
     }
   });
 
-  currentAvailableHours = freehoursAvailableHours - realspenthoursAvailableHours;
+  currentAvailableHours = freehoursAvailableHours - realburnedhoursAvailableHours;
 
   mytodos?.forEach((todo) => {
     currentAvailableHours -= parseInt(todo.mngmntAmount);
-    realspenthoursAvailableHours += parseInt(todo.mngmntAmount);
+    realburnedhoursAvailableHours += parseInt(todo.mngmntAmount);
   });
 
-  return { freehoursAvailableHours, realspenthoursAvailableHours, currentAvailableHours };
+  return { freehoursAvailableHours, realburnedhoursAvailableHours, currentAvailableHours };
 };

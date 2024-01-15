@@ -1,4 +1,4 @@
-  // References:
+  // References used for learning:
   // https://react.dev/reference/react/useReducer
   // https://stackoverflow.com/questions/71564914/firebase-updating-documents-delayed-by-one-onclick-event
 

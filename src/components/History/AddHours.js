@@ -1,3 +1,4 @@
+//  adding hours imports
 import { Form, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -62,7 +63,7 @@ const AddHours = ({ show, handleClose }) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="max">
-            <Form.Label>Amount</Form.Label>
+            <Form.Label>Insert you estimated free hours</Form.Label>
             <Form.Control
               type="number"
               required

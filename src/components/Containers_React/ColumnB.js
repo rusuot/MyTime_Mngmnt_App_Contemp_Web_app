@@ -25,11 +25,6 @@ const ColumnB = () => {
           max={freehoursAvailableHours}
           now={currentAvailableHours}
         />
-
-
-
-
-
       </h2>
       <div className="d-flex justify-content-center">
       <h5>Insert your time in here:</h5>
@@ -41,9 +36,6 @@ const ColumnB = () => {
           Add Free Hours
         </button>
       </div>
-
-
-
       <div className="d-flex justify-content-center">
       <h5>Insert burned hours in here:</h5>
         <button
@@ -54,10 +46,6 @@ const ColumnB = () => {
           Add Burned Hours
         </button>
       </div>
-
-
-
-
       <AddHours
         show={showAddHoursModal}
         handleClose={() => setShowAddHoursModal(false)}

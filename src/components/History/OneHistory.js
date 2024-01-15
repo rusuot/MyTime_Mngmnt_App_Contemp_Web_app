@@ -10,32 +10,25 @@ const OneHistory = ({
       <div className="d-flex flex-column w-100">
         <h6 className="fw-bold heading my-3">
         <span>
-        {activity === "#yourfreehours" ? <h5> You have added some free hours!!!</h5> : <h5> Scheduled/Burned hours </h5>}
-
+        {activity === "#yourfreehours" ? <h5> Here you have added free hours</h5> : <h5> Scheduled/Burned hours </h5>}
       </span>
 
-          {  
 
-            <Moment format="'LL'">
-              {createdAt.toDate()}
-            </Moment>
-          }
+
           <span
-          
             className={
               "ms-1 fw-bold " +
-              (activity === "#yourfreehours" ? "text-success"  : "text-danger")
+              (activity === "#yourfreehours" ? "text-success bg-info"  : "text-secondary bg-info")
             }
           >
             <h5> In your activity: {activity}</h5>
-            {/* {activity} */}
             <h6
             className={
               "m-0 ms-auto fw-bold " +
-              (activity === "#yourfreehours" ? "text-success" : "text-danger")
+              (activity === "#yourfreehours" ? "text-success bg-info" : "text-secondary bg-info")
             }
           >
-            {(activity === "#yourfreehours" ? "added" : "scheduled OR burned") + ' '+ ` ${amount} hours `}
+            {(activity === "#yourfreehours" ? "Hours added:" : "Hours burned or scheduled:") + ' '+ ` ${amount}`}
           </h6>
           </span>
         </h6>
@@ -48,20 +41,26 @@ const OneHistory = ({
                 {description.substring(0, 45)}<span className="text-secondary">...</span>
               </>
             ) : (
-              <h5> More exactly set on: {description}</h5>
-              // description
+              <h5> More exactly set: {description} at {  
+// add time for this from db
+                <Moment format="'LL'">
+                  {createdAt.toDate()}
+                </Moment>
+                }</h5>
+              
             )}
+                      
           </p>
         </div>
-        <p className="hist-todo m-0 text-secondary">
-          ~
+        <p className="hist-todo m-0 text-primary">
+          TypeOfSelection---
           {todo.length >=
           35 ? (
             <>
-              {todo.toLowerCase().substring(0, 25)}<span className="text-secondary">...</span>
+              {todo.substring(0, 35)}<span className="text-primary">...</span>
             </>
           ) : (
-            todo.toLowerCase()
+            todo
           )}
         </p>
       </div>

@@ -18,6 +18,7 @@ const ActivityList = () => {
   return (
     <>
       <div className={"activity-list mb-4"}>
+      <div className="scroll-container">
         {error && toast.error(error)}
         {!documents ? (
           <div className="text-center text-dark bg-light p-2 rounded w-100">
@@ -27,6 +28,7 @@ const ActivityList = () => {
           documents.map((activity, idx) => {
             // returning documents list from firebase 
             return (
+
               <Activity
                 key={idx}
                 data={activity}
@@ -34,7 +36,9 @@ const ActivityList = () => {
                   setData(activity);
                   setActivity(true);
                 }}
+
               />
+                         
             );
           })
         ) : (
@@ -42,7 +46,11 @@ const ActivityList = () => {
             There is no Activity found, please insert at least one!
           </div>
         )}
+        
       </div>
+      </div>
+
+
 {/* call for update an activity */}
       <UpdateActivity
         show={displayActivity}

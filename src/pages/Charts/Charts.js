@@ -64,8 +64,8 @@ const Charts = () => {
                 >
                   <option value={"#all"}>Select My Activity Data (default: see all)</option>
 
-                  <option value={"#realspenthours"} idx={"00"}>
-                  RealSpentHours
+                  <option value={"#realburnedhours"} idx={"00"}>
+                  RealburnedHours
                   </option>
                   
                   {activities?.map((activity, idx) => {

@@ -25,20 +25,20 @@ const History = () => {
     <div className="onehistory-page">
       {error && toast.error(error)}
       {activitiesError && toast.error(activitiesError)}
-      <h2 className="m-0 fw-bold text-center mb-3 mb-sm-4">History</h2>
-      <div className="d-flex justify-content-between align-items-center gap-2 mb-2">
+      <h2 className="m-1 fw-bold text-center mb-3 mb-sm-4">History</h2>
+      <div className="d-flex  flex-row bd-highlight mb-3">
         <Form.Group>
           <Form.Select
             onChange={(e) => handleChange(e)}
             name="activity"
             className="py-2"
           >
-            <option value={"#all"}>All Activity</option>
+            <option value={"#all"}>Check Activity</option>
             <option value={"#yourfreehours"} idx={"01"}>
               FreeHours
             </option>
-            <option value={"#realspenthours"} idx={"00"}>
-            RealSpentHours
+            <option value={"#realburnedhours"} idx={"00"}>
+            RealBurnedHours
             </option>
             {activities?.map((activity, idx) => {
               return (
@@ -55,7 +55,7 @@ const History = () => {
             name="todo"
             className="py-2"
           >
-            <option value={"all"}>All MyTODOs</option>
+            <option value={"all"}>Check MyTODOs</option>
             <option value={"RegisterMyTime"}>RegisterMyTime</option>
             {mytodos?.map((todo, idx) => {
               return (
@@ -67,6 +67,7 @@ const History = () => {
           </Form.Select>
         </Form.Group>
       </div>
+
 
       <OneHistoryList filter={filter} />
     </div>

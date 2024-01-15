@@ -1,4 +1,5 @@
-//  https://medium.com/@yildizfatma/building-a-user-login-screen-with-react-native-and-firebase-80ccb78e66ca
+// ref for info
+// https://medium.com/@yildizfatma/building-a-user-login-screen-with-react-native-and-firebase-80ccb78e66ca
 
 import { useEffect, useState } from "react";
 import { useThisAuthContext } from "./AuthContext";
@@ -10,8 +11,6 @@ export const doLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { dispatch } = useThisAuthContext();
-
-
 
   // ref for info:  https://stackoverflow.com/questions/67851779/handling-errors-when-firebase-auth-in-different-file
   const login = async (email, password) => {

@@ -18,6 +18,11 @@
     /* margin-left: 50px; */
 }
 
+.navbar:hover {
+    background-color: #3a58d2;
+}
+
+
 .navbar a {
     color: #fff;
     text-decoration: none;
@@ -47,7 +52,7 @@
 .menu:hover,
 .menu:active,
 .menu:focus {
-    background-color: #2f1296;
+    background-color: #3e98f8;
     color: #fff;
 }
 

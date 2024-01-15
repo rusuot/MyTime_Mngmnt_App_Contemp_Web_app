@@ -69,7 +69,7 @@ const UpdateTODO = ({
           {
             todoId: "",
             todo: "no-todo",
-            activity: "#realspenthours",
+            activity: "#realburnedhours",
           },
           hist.id
         );

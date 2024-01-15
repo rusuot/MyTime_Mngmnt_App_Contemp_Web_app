@@ -1,7 +1,11 @@
+// ref for info
+//  quite similar to login for logout also
+// https://medium.com/@yildizfatma/building-a-user-login-screen-with-react-native-and-firebase-80ccb78e66ca
+//  imports for react & firebase stuff
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { auth } from "../Firebase/config";
 import { signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
 import { useThisAuthContext } from "./AuthContext";
 
 export const Logout = () => {

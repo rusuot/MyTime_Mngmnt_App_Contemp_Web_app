@@ -3,7 +3,7 @@ import React from "react";
 import { ComputeTiming } from "Functions/ComputeTiming";
 import { CalendarClock, Troubleshoot} from "Icons/Icons";
 const ColumnC = () => {
-  const { freehoursAvailableHours, realspenthoursAvailableHours, currentAvailableHours } = ComputeTiming();
+  const { freehoursAvailableHours, realburnedhoursAvailableHours, currentAvailableHours } = ComputeTiming();
 
   return (
     <div className="container-columna">
@@ -21,10 +21,10 @@ const ColumnC = () => {
               </div>
           </div>
           <div className="statistics-container">
-              <div className="d-flex text-danger">
+              <div className="d-flex text-secondary">
                 <Troubleshoot className={"me-1"} />
                 <span>
-                  -{((realspenthoursAvailableHours / freehoursAvailableHours) * 100).toPrecision(2)}%
+                  -{((realburnedhoursAvailableHours / freehoursAvailableHours) * 100).toPrecision(2)}%
                 </span>
             </div>
           </div>

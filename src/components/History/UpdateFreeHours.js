@@ -91,8 +91,8 @@ const UpdateFreeHours = ({
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Amount (Min-Limit:{" "}
-              <span className="text-primary">hours{parseInt(getMinLimit())}</span>)</Form.Label>
+            <Form.Label>Hours (you need to insert a no grater than:{" "} 
+              <span className="text-primary">hours{parseInt(getMinLimit())}</span> no is computed based on what is burned already)</Form.Label>
             <Form.Control
               type="number"
               required

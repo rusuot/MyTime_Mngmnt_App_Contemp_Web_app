@@ -4,11 +4,11 @@ import { useThisAuthContext } from "./AuthContext";
 import { auth } from "../Firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
-export const useSignup = () => {
-  const [isStopped, setIsStopped] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+export const userSignup = () => {
   const [error, setError] = useState(null);
   const { dispatch } = useThisAuthContext();
+  const [isStopped, setIsStopped] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const signup = async (email, password, displayName) => {
     setError(null);

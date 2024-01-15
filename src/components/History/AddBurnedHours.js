@@ -67,7 +67,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
       return toast.error(response.error);
     }
 
-    toast.success(`${form.amount} Consider burned hours`);
+    toast.success(`${form.amount} set burned hours - with success!`);
 
     handleRemoveData();
     handleClose();
@@ -104,23 +104,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
               placeholder="Burn hours for something.. "
             />
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>
-              Maximum time limit: {" "}
-              <span className="text-primary">{parseInt(getMaximumTime())} - hours</span>
-            </Form.Label>
-            (This no will be changed based on what you select: activity/todo)
-            <Form.Control
-              type="number"
-              required
-              min={1}
-              max={parseInt(getMaximumTime())}
-              name="amount"
-              value={form.amount}
-              placeholder="Insert desired no of hours:"
-              onChange={handleChange}
-            />
-          </Form.Group>
+
 
 {/*  to do logic in form */}
           <Form.Group className="mt-2 mb-3">
@@ -142,7 +126,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
             </Form.Select>
           </Form.Group>
 
-          <div className="text-danger">(OR) - select only one option</div>
+          <div className="text-secondary bg-info">(OR) - select only one option</div>
 {/*  activity logic in form */}
           <Form.Group className="mb-2">
             <Form.Label>Activity</Form.Label>
@@ -153,7 +137,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
               disabled={form.todo !== "no-todo"}
             >
               <option value="">Please expand for activity burned hours</option>
-              <option value="#realspenthours">General Spent Hours (just lost time)</option>
+              <option value="#realburnedhours">General Spent Hours (just lost time)</option>
               {activities?.map((activity, idx) => {
                 return (
                   <option value={activity.code} key={idx}>
@@ -162,6 +146,24 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
                 );
               })}
             </Form.Select>
+          </Form.Group>
+{/* time dynamic If you select a TO DO task or an actually activity time is computed based on what is chosen */}
+          <Form.Group className="mb-3">
+            <Form.Label>
+              Maximum time limit: {" "}
+              <span className="text-primary">{parseInt(getMaximumTime())} - hours</span>
+            </Form.Label>
+            (This no will be changed based on what you select: activity/todo)
+            <Form.Control
+              type="number"
+              required
+              min={1}
+              max={parseInt(getMaximumTime())}
+              name="amount"
+              value={form.amount}
+              placeholder="Insert desired no of hours:"
+              onChange={handleChange}
+            />
           </Form.Group>
 
 

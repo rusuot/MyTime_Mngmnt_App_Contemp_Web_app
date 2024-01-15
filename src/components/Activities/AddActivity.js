@@ -6,8 +6,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { Form, Modal } from "react-bootstrap";
 
-
-
+// add activity, examples: studies, sports..
 const AddActivity = ({ show, handleClose }) => {
   const { addDocument, response } = Firestore("activities");
   const { documents } = Collection("activities", [
@@ -56,11 +55,12 @@ const AddActivity = ({ show, handleClose }) => {
     <Modal show={show} onHide={handleClose}>
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>Add your Activity</Modal.Title>
+          <Modal.Title>Add your desired Activity</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+{/* description field */}
           <Form.Group className="mb-3">
-            <Form.Label>Description</Form.Label>
+            <Form.Label>Description/Title</Form.Label>
             <Form.Control
               type="text"
               required
@@ -69,6 +69,7 @@ const AddActivity = ({ show, handleClose }) => {
               onChange={handleChange}
               placeholder="for example: study time"
             />
+{/* add button */}
           </Form.Group>
           <div className="d-flex">
             <button

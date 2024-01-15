@@ -1,0 +1,117 @@
+/* history stuff & history hovers */
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    max-width: 2048px;
+    margin: 3rem;
+    border-radius: 22px;
+    /* scroll-behavior: smooth; */
+}
+
+.history-header .history-title {
+    color: #2f1296;
+    /* background-color: #b3faec; */
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.scroll-container {
+    max-width: 2048px;
+    height: 350px; 
+    padding: 20px 50px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    background-color: #69d4f7;
+    color: #2f1296;
+  }
+
+.history-header .history-check-all-btn {
+    text-decoration: none;
+    border: none;
+    padding: 3px 6px;
+    border-radius: 6px;
+    color: #2f1296;
+    background-color: #a2f79b;
+    font-size: 14px;
+    letter-spacing: 0.01px;
+    /* float: left; */
+    position: absolute; 
+}
+
+/*  hover style */
+.history-header .history-check-all-btn:hover {
+    background-color: #008CBA; 
+    color: rgb(176, 226, 240); 
+  }
+
+.history {
+    max-width: 2048px;
+    margin: auto;
+    padding: 16px;
+    border-style: dashed;
+    background-color: #69d4f7;
+    color: #2f1296;
+    /* border-radius: 50px; */
+    border-radius: 75px;
+
+}
+
+/*  hover style */
+.history:hover {
+    /* set very light yellow */
+    background-color: #f6fbe3; 
+    color: rgb(3, 8, 10); 
+  }
+.hist {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    /* border-radius: 75px; */
+
+}
+/*  hover style */
+.hist:hover {
+    background-color: #11d35c; 
+    color: rgb(3, 8, 10); 
+  }
+
+.hist-todo {
+    font-size: 12px;
+    border-radius: 22px;
+    border-style: dashed;
+    margin: 2rem;
+
+}
+
+/* hover over each item in history */
+.hist-todo:hover {
+    font-size: 12px;
+    border-radius: 22px;
+    border-style: dashed;
+    background-color: #aedbfc; 
+    color: rgb(3, 8, 10); 
+}
+
+.hist-date {
+    font-family: 'ADLaM Display', sans-serif;
+    font-size: 12px;
+    color: #2f1296;
+    opacity: .9;
+}
+
+.hist-description {
+    font-family: 'ADLaM Display', sans-serif;
+}
+
+@media (min-width: 1024px) {
+    .history {
+        padding: 16px 32px;
+    }
+}

@@ -1,0 +1,87 @@
+.navbar {
+    height: 90px;
+    padding: 0 50px;
+    background-color: #2f1296;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 50px;
+
+
+    /* width: 150px; */
+    float: left;
+    /* display: inline;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px; */
+
+
+    /* margin-left: 50px; */
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0;
+
+}
+
+.menu-nav a {
+    border-bottom: 1px solid transparent ;
+}
+
+.menu-nav a:hover{
+    color: #fff;
+    border-color: lightgrey ;
+}
+
+
+.menu {
+    display: flex;
+    font-weight: bold;
+    background-color: #2f1296;
+    color: #fff;
+    border: 10px solid #fff;
+    /* align-items:flex-start; */
+}
+
+.menu:hover,
+.menu:active,
+.menu:focus {
+    background-color: #2f1296;
+    color: #fff;
+}
+
+.menu-modal .modal-dialog {
+    max-width: 65%;
+    margin: auto;
+}
+
+.menu-modal .modal-header {
+    background-color: #2f1296;
+    color: #fff;
+}
+
+.modal-header .btn-close {
+    border: 10px solid #fff;
+    opacity: 1;
+}
+
+.menu-modal .modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-modal .modal-body a {
+    border: 10px solid #2f1296;
+    background: linear-gradient(319deg, #54c5f5a6 0%, #46799a 37%, #787a96 100%);
+    border-radius: 6px;
+    padding: 8px 32px;
+    margin: 4px 0;
+    font-weight: bold;
+    color: #2f1296;
+}
+
+.menu-modal .modal-body a:hover {
+    background: linear-gradient(319deg, #c2eaba 0%, #c5f4e0 37%, #2594f6 100%);
+}

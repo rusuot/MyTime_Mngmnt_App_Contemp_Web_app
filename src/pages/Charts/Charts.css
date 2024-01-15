@@ -1,0 +1,28 @@
+.charts-page {
+    color: #2f1296;
+    max-width: 90%;
+    margin: auto;
+    padding: 40px 50px;
+}
+
+.charts-page .graph {
+    padding: 20px 50px;
+    background-color: #94ebfd;
+    border-radius: 50px;
+}
+
+.charts-page-options {
+    color: #2f1296;
+    max-width: 90%;
+    margin: auto;
+    padding: 80px 40px;
+}
+
+.charts-page-options:hover {
+    color: #2f1296;
+    max-width: 90%;
+    margin: auto;
+    padding: 80px 40px;
+    background-color: #46aef3;
+
+}

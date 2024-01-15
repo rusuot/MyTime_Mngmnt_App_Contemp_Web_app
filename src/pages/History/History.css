@@ -1,0 +1,18 @@
+.onehistory-page {
+    padding: 70px 50px;
+    max-width: 2048px;
+    margin: auto;
+}
+
+.onehistory-page button {
+    color: #2f1296;
+    background-color: #fff;
+}
+
+.onehistory-page button:active {
+    transform: scale(.98);
+}
+
+/* .mytodos-page .mytodos-page-header {
+    padding: 10px 50px;
+} */

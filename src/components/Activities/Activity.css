@@ -1,0 +1,43 @@
+/*  activities styling side */
+/* and hover added*/
+/* and modal-content added*/
+
+.activity-list {
+    display: table;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 2048px;
+}
+
+.activity-list .activity {
+    background-color: rgb(173, 222, 222);
+    border-radius: 80px;
+    padding: 40px 90px;
+    cursor: pointer;
+    min-width: 450px;
+    flex: 1;
+    border: 5px solid rgb(90, 138, 250);
+}
+
+/*  hover style */
+.activity-list .activity:hover {
+    background-color: #008CBA; 
+    color: white; 
+  }
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #c5e0e8;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+  }
+
+/* responsive html css design */
+@media (min-width: 500px) {
+    .activity-list .activity {
+        min-width: 500px;
+    }
+}

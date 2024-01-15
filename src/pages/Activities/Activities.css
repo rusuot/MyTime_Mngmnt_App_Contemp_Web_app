@@ -1,0 +1,16 @@
+.activities-page {
+    padding: 70px 50px;
+    max-width: 2048px;
+    margin: auto;
+}
+/* add button */
+.activities-page .activities-page-header button {
+    color: #2f1296;
+    background-color: #a2e3f4;
+}
+
+/* button hover style */
+.activities-page .activities-page-header button:hover {
+    background-color: #008CBA; 
+    color: white; 
+  }

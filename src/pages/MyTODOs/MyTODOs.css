@@ -1,0 +1,63 @@
+.mytodos-page {
+    padding: 70px 50px;
+    max-width: 2048px;
+    margin: auto;
+}
+
+.mytodos-page button {
+    color: #0600ba; 
+    background-color: #6cd3f5; 
+    /* position:absolute; */
+}
+
+/*  hover style */
+.mytodos-page button:hover {
+    background-color: #008CBA; 
+    color: rgb(236, 243, 33); 
+  }
+
+.mytodos-page .mytodos-page-header {
+    padding: 10px 10px;
+    color: #0600ba; 
+    background-color: #78ddff; 
+}
+/*  hover style */
+.mytodos-page .mytodos-page-header:hover {
+    background-color: #008CBA; 
+    color: rgb(236, 243, 33); 
+  }
+
+
+.mytodos-page button:active {
+    transform: scale(.98);
+}
+
+.mytodos-page .mytodos {
+    flex-wrap: wrap;
+    background-color: #abe1f4; 
+    color: rgb(81, 16, 234); 
+}
+
+/*  hover style */
+.mytodos-page .mytodos:hover {
+    background-color: #008CBA; 
+    color: rgb(81, 16, 234); 
+  }
+
+.mytodos-page .mytodos .todo {
+    min-width: 250px;
+    flex: 1;
+    background-color: #b4fafd; 
+}
+
+@media (min-width: 400px) {
+
+    .mytodos-page .todo {
+        min-width: 300px;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+} 

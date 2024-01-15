@@ -1,0 +1,19 @@
+body {
+    font-family: 'ADLaM Display', sans-serif;
+    padding: 50px;
+    background: #aae9f8;
+}
+
+.app {
+    max-width:2048px;
+    margin:none;
+    min-height: calc(100vh - 2*50px);
+    padding: 32px 32px;
+    background-image: linear-gradient(319deg, #99f5e0a6 0%, #46799a 37%, #56abecc2 100%);
+    color: #2f1296;
+    border-radius: 50px;
+}
+
+.test {
+    outline: 2px solid red;
+}

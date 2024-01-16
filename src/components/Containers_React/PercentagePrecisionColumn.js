@@ -1,7 +1,7 @@
 // imports
 import React from "react";
 import { ComputeTiming } from "Functions/ComputeTiming";
-import { CalendarClock, Troubleshoot} from "Icons/Icons";
+import { CalendarClock, Troubleshoot, InfoIcon} from "Icons/Icons";
 const PercentagePrecisionColumn = () => {
   const { freehoursAvailableHours, realburnedhoursAvailableHours, currentAvailableHours } = ComputeTiming();
 
@@ -9,6 +9,7 @@ const PercentagePrecisionColumn = () => {
     <div className="container-columna">
       <div className="d-flex flex-column justify-content-center">
         <h6 className="fw-bold heading my-3">
+        <InfoIcon></InfoIcon>
           Percentage Precision (free/scheduled hours){" "}
         </h6>
         <div className="mngmnt-statistics">

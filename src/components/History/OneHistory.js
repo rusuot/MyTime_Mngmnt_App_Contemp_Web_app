@@ -2,6 +2,8 @@
 import Moment from "react-moment";
 import React from "react";
 
+
+
 const OneHistory = ({
 
   data: { description, amount, todo, activity, createdAt }, onClick,
@@ -11,7 +13,7 @@ const OneHistory = ({
       <div className="text-end">
         <h6 className="text-end">
         <span>
-        {activity === "#yourfreehours" ? <h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {activity === "freetime" ? <h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Here you have added free hours</h5> : <h5 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Scheduled/Burned hours </h5>}
       </span>
@@ -19,17 +21,17 @@ const OneHistory = ({
           <span
             className={
               "text-end" +
-              (activity === "#yourfreehours" ? "text-success bg-info"  : "text-secondary bg-info")
+              (activity === "freetime" ? "text-success bg-info"  : "text-secondary bg-info")
             }
           >
             <h5> In your activity: {activity}</h5>
             <h6
             className={
               "m-0 ms-auto fw-bold " +
-              (activity === "#yourfreehours" ? "text-success bg-info" : "text-secondary bg-info")
+              (activity === "freetime" ? "text-success bg-info" : "text-secondary bg-info")
             }
           >
-            {(activity === "#yourfreehours" ? "Hours added:" : "Hours burned or scheduled:") + ' '+ ` ${amount}`}
+            {(activity === "freetime" ? "Hours added:" : "Hours burned or scheduled:") + ' '+ ` ${amount}`}
           </h6>
           </span>
         </h6>

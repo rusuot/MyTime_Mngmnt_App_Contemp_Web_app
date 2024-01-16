@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import { Collection } from "authReactH/Collection";
 
+// color function
 function getRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
   var color = '#';
@@ -12,7 +13,8 @@ function getRandomColor() {
   return color;
 }
 
-
+// pie chart data: label & data & random color
+//  set this for both free and invested/scheduled hours
 const PieChartData = (filter) => {
   const [freeHistData, setFreeHistData] = useState({
     LabelArray: [],
@@ -30,6 +32,7 @@ const PieChartData = (filter) => {
 
   useEffect(() => {
     if (documents && documents.length > 0) {
+      // initialize variables with 0 for both free & invested hours
       let FreeHistLabelArray = [];
       let FreeHistDataArray = [];
       let FreeHistColorArray = [];
@@ -46,7 +49,7 @@ const PieChartData = (filter) => {
         const colorme = getRandomColor();
               
 
-        if (doc.activity === "#yourfreehours") {
+        if (doc.activity === "freetime") {
           FreeHistLabelArray.push(formattedTimestamp);
           FreeHistDataArray.push(parseInt(doc.amount));
           FreeHistColorArray.push(colorme);
@@ -61,19 +64,21 @@ const PieChartData = (filter) => {
           }
         }
       });
+// free
       FreeHistLabelArray = FreeHistLabelArray.reverse();
       FreeHistDataArray = FreeHistDataArray.reverse();
       FreeHistColorArray = FreeHistColorArray.reverse();
-
+// invested
       BurnedHistLabelArray = BurnedHistLabelArray.reverse();
       BurnedHistDataArray = BurnedHistDataArray.reverse();
       BurnedHistColorArray = BurnedHistColorArray.reverse();
-
+// set free
       setFreeHistData({
         LabelArray: FreeHistLabelArray,
         DataArray: FreeHistDataArray,
         ColorArray: FreeHistColorArray,
       });
+// set invested
       setBurnedHistData({
         LabelArray: BurnedHistLabelArray,
         DataArray: BurnedHistDataArray,
@@ -87,13 +92,12 @@ const PieChartData = (filter) => {
       setDocLength(documents.length);
     }
   }, [documents, filter]);
-
+// free
   const freeData = {
     labels: freeHistData.LabelArray,
     datasets: [
       {
         label: "FreeHours History",
-        // backgroundColor: "rgba(75,192,192,1)",
         borderColor: "rgba(0,0,0,1)",
         // backgroundColor: getRandomColor(),
         backgroundColor: freeHistData.ColorArray,
@@ -102,13 +106,12 @@ const PieChartData = (filter) => {
       },
     ],
   };
-
+// invested
   const burnedData = {
     labels: burnedHistData.LabelArray,
     datasets: [
       {
         label: "BurnedHours History",
-        // backgroundColor: "rgba(75,192,192,1)",
         backgroundColor: burnedHistData.ColorArray,
         borderColor: "rgba(0,0,0,1)",
         borderWidth: 1,

@@ -24,25 +24,29 @@ const TODOList = ({ filterActivity }) => {
           documents.map((todo, idx) => {
             if (!filterActivity || filterActivity === "#all") {
               return (
-                <TODO
+                <><TODO
                   key={idx}
                   data={todo}
                   onClick={() => {
                     setData(todo);
                     setShowTODOModal(true);
-                  }}
-                />
+                  } } /><li key={idx + 1}>
+                    Item number: {idx + 1}
+                  </li></>
+
+
               );
             } else if (filterActivity === todo.activity) {
               return (
-                <TODO
+                <><TODO
                   key={idx}
                   data={todo}
                   onClick={() => {
                     setData(todo);
                     setShowTODOModal(true);
-                  }}
-                />
+                  } } /><li key={idx + 1}>
+                    Item number: {idx + 1}
+                  </li></>
               );
             } else {
               return <></>;

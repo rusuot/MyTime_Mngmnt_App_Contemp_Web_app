@@ -2,10 +2,10 @@ import React from "react";
 
 import { ComputeTiming } from "Functions/ComputeTiming";
 import { ProgressBar } from "react-bootstrap";
-import { getProgressBarVariantContainer, ScreenreaderLabelExample } from "Functions/functions";
+import { getProgressBarVariantContainer, getProgressBarVariant2Container } from "Functions/functions";
 
 const RegisterOrBurnHoursContainer = () => {
-  const { currentAvailableHours, freehoursAvailableHours } = ComputeTiming();
+  const { currentAvailableHours, freehoursAvailableHours, realburnedhoursAvailableHours } = ComputeTiming();
 
   return (
     <div className="container .register">
@@ -24,7 +24,20 @@ const RegisterOrBurnHoursContainer = () => {
           now={currentAvailableHours}
         />
       </h2>
-
+      {/* <h2 className="mb-4">
+        Reserved hours: <span className="fw-bold">{realburnedhoursAvailableHours}  </span>
+        from <span className="fw-bold">{freehoursAvailableHours}</span>
+        <ProgressBar
+          className="rounded-pill mb-2 mb-sm-3"
+          
+          // variant={ScreenreaderLabelExample(currentAvailableHours, freehoursAvailableHours)}
+          variant={getProgressBarVariant2Container(realburnedhoursAvailableHours, freehoursAvailableHours)}
+          animated={true}
+          min={0}
+          max={freehoursAvailableHours}
+          now={currentAvailableHours}
+        />
+      </h2> */}
     </div>
   );
 };

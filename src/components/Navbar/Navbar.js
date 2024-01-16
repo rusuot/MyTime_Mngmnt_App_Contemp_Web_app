@@ -1,19 +1,20 @@
-import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
+// set imports
 import Nav from "react-bootstrap/Nav";
 import Navbarr from "react-bootstrap/Navbar";
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Menu } from "../../Icons/Icons";
 import NavItems from "./NavItems";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { MenuIcon } from "../../Icons/Icons";
 import { useThisAuthContext } from "../../authReactH/AuthContext";
+import Container from "react-bootstrap/Container";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
   const { user } = useThisAuthContext();
 
-  const MyVerticallyCenteredModal = (props) => {
+  const Modal_stuff = (props) => {
     return (
       <Modal
         {...props}
@@ -39,6 +40,8 @@ const Navbar = () => {
   return (
     <header className="header">
       <Navbarr variant="dark" className="navbar shadow">
+       {/* added menu icon before manu options*/}
+      <MenuIcon></MenuIcon>
         <Container fluid>
           <Navbarr.Brand as={Link} to="/">
             {/* Time Management App  Hello, {user.displayName} */}
@@ -46,6 +49,7 @@ const Navbar = () => {
           </Navbarr.Brand>
 
           <Nav className="menu-nav ms-auto d-none d-md-flex">
+            {/* added nav items */}
             <NavItems />
           </Nav>
 
@@ -54,20 +58,16 @@ const Navbar = () => {
             className="d-md-none menu"
             onClick={() => setModalShow(true)}
           >
-            <Menu />
           </Button>
 
-          <MyVerticallyCenteredModal
+          <Modal_stuff
             show={modalShow}
             onHide={() => setModalShow(false)}
             onClick={() => setModalShow(false)}
             className="d-md-none"
           />
+          {/* added container */}
         </Container>
-        
-
-
-
         
       </Navbarr>
     </header>

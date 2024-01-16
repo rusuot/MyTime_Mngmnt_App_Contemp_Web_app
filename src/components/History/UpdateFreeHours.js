@@ -1,3 +1,4 @@
+//  set imports
 import { Form, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -11,7 +12,7 @@ const UpdateFreeHours = ({
 }) => {
   const { updateDocument, deleteDocument, response } =
     Firestore("history");
-
+// declare constant from time computation function
   const { currentAvailableHours } = ComputeTiming();
 
   const [form, setForm] = useState({
@@ -78,6 +79,7 @@ const UpdateFreeHours = ({
           <Modal.Title>Update FreeHours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* description */}
           <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Day of week</Form.Label>
             <Form.Control
@@ -89,7 +91,7 @@ const UpdateFreeHours = ({
               placeholder="For example name a week day"
             />
           </Form.Group>
-
+{/*  amount of hours*/}
           <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Hours (you need to insert a no grater than:{" "} 
               <span className="text-primary">hours{parseInt(getMinLimit())}</span> no is computed based on what is burned already)</Form.Label>
@@ -104,7 +106,7 @@ const UpdateFreeHours = ({
               placeholder="Insert no of hours"
             />
           </Form.Group>
-
+{/* update button */}
           <div className="d-flex">
             <button
               type="submit"
@@ -113,6 +115,7 @@ const UpdateFreeHours = ({
             >
               {!response.isPending ? "Update" : "Loading.."}
             </button>
+{/* delete button */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-danger border-0 p-2"
@@ -121,6 +124,7 @@ const UpdateFreeHours = ({
             >
               {!response.isPending ? "Delete" : "Loading.."}
             </button>
+{/* close button */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-secondary border-0 p-2"

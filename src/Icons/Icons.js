@@ -1,7 +1,13 @@
 // Ref for Icons used from material-symbols-outlined:
 // https://fonts.google.com/icons?selected=Material+Symbols+Outlined:info:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=info
+//  https://fonts.google.com/icons?icon.query=menu
 // react import
 import React from "react";
+
+// menu icon displayed in navbar
+export const MenuIcon = ({ className }) => {
+  return <span className={"material-symbols-outlined " + className}>menu</span>;
+};
 
 export const Troubleshoot = ({ className }) => {
   return (
@@ -13,10 +19,6 @@ export const CalendarClock = ({ className }) => {
   return (
     <span className={"material-symbols-outlined " + className}>calendar_clock</span>
   );
-};
-
-export const Menu = ({ className }) => {
-  return <span className={"material-symbols-outlined " + className}>menu</span>;
 };
 
 export const TableChartViewIcon = ({ className }) => {
@@ -36,7 +38,6 @@ info
 };
 
 
-
 export const DeleteIcon = ({ className }) => {
   return (
 <span class="material-symbols-outlined">
@@ -46,37 +47,5 @@ delete
 };
 
 
-export const TrendingUp = ({ className }) => {
-  return (
-    <span className={"material-symbols-outlined " + className}>
-      more_time
-    </span>
-  );
-};
-
-export const TrendingDown = ({ className }) => {
-  return (
-    <span className={"material-symbols-outlined " + className}>
-      hourglass_top
-    </span>
-  );
-};
 
 
-// export const TrendingUp = ({ className }) => {
-//     return (
-//       <span className={"material-symbols-outlined " + className}>
-//         trending_up
-//       </span>
-//     );
-//   };
-
-  // export const TrendingDown = ({ className }) => {
-  //   return (
-  //     <span className={"material-symbols-outlined " + className}>
-  //       trending_down
-  //     </span>
-  //   );
-  // };
-  
-  

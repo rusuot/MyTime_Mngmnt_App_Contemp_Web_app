@@ -1,7 +1,7 @@
 body {
     font-family: 'ADLaM Display', sans-serif;
     padding: 50px;
-    background: #aae9f8;
+    background: #baecf8;
 }
 
 .app {
@@ -15,5 +15,6 @@ body {
 }
 
 .test {
-    outline: 2px solid red;
+    color: #2f1296;
+    border-radius: 50px;
 }

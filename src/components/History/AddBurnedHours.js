@@ -9,7 +9,9 @@ import { ComputeTiming } from "Functions/ComputeTiming";
 const AddBurnedHoursModal = ({ show, handleClose }) => {
   // declare constants for firebase
   const { documents } = Collection("mytodos", ["createdAt", "desc"]);
+  // const add document in firebase
   const { addDocument, response } = Firestore("history");
+  // const update document in firebase
   const { updateDocument, response: updateResponse } = Firestore("mytodos");
   const { documents: activities, error: activitiesError } = Collection(
     "activities",
@@ -21,7 +23,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
   const [form, setForm] = useState({
     description: "",
     amount: 0,
-    todo: "no-todo",
+    todo: "todo_task_not_set",
     activity: "",
     todoId: "",
   });
@@ -30,7 +32,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
     setForm({
       description: "",
       amount: 0,
-      todo: "no-todo",
+      todo: "todo_task_not_set",
       activity: "",
       todoId: "",
     });
@@ -41,11 +43,11 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
 
     let doc = { ...form, amount: parseInt(form.amount) };
 
-    if (doc.todo === "no-todo" && doc.activity === "") {
+    if (doc.todo === "todo_task_not_set" && doc.activity === "") {
       return toast.warning("Please select an activity or a todo.");
     }
 
-    if (doc.todo !== "no-todo") {
+    if (doc.todo !== "todo_task_not_set") {
       const todo = documents[form.todo];
       doc.todo = todo.title;
       doc.todoId = todo.id;
@@ -78,7 +80,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
   };
 //  time calculation: all - current
   const getMaximumTime = () => {
-    if (form.todo !== "no-todo") {
+    if (form.todo !== "todo_task_not_set") {
       const maximumTime = documents[form.todo].mngmntAmount - documents[form.todo].currentTime;
       return maximumTime;
     }
@@ -90,7 +92,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
       {activitiesError && toast.error(activitiesError)}
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>Add BurnedHours</Modal.Title>
+          <Modal.Title>Add Invested/Scheduled H</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group className="mb3">
@@ -115,7 +117,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
               value={form.todo}
               disabled={form.activity !== ""}
             >
-              <option value="no-todo">Please expand for your TODOs</option>
+              <option value="todo_task_not_set">Please expand for your TODOs</option>
               {documents?.map((todo, idx) => {
                 return (
                   <option value={idx} key={idx}>
@@ -134,10 +136,10 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
               name="activity"
               onChange={handleChange}
               value={form.activity}
-              disabled={form.todo !== "no-todo"}
+              disabled={form.todo !== "todo_task_not_set"}
             >
               <option value="">Please expand for activity burned hours</option>
-              <option value="#realburnedhours">General Spent Hours (just lost time)</option>
+              <option value="time_invested_or_reserved">General Spent Hours (just lost time)</option>
               {activities?.map((activity, idx) => {
                 return (
                   <option value={activity.code} key={idx}>

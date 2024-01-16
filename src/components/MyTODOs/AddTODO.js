@@ -35,7 +35,7 @@ const AddTODO = ({ show, handleClose }) => {
 // submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+// raise/display toasts if none or 0
     if (documents.length === 0) {
       return toast.warning("There is no activity registerd");
     }
@@ -72,6 +72,7 @@ const AddTODO = ({ show, handleClose }) => {
           <Modal.Title>New TODO</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* title field */}
           <Form.Group className="mb-3">
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -82,8 +83,7 @@ const AddTODO = ({ show, handleClose }) => {
               value={form.title}
               placeholder="For example: QHO 640 study"
             />
-
-
+{/* select your toso activity */}
           <Form.Label>Select your todo activity: </Form.Label>
           <Form.Select
             className="mb-3"
@@ -100,7 +100,7 @@ const AddTODO = ({ show, handleClose }) => {
               );
             })}
           </Form.Select>
-
+{/* and insert hour per item selected before */}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>
@@ -120,6 +120,7 @@ const AddTODO = ({ show, handleClose }) => {
           </Form.Group>
 
           <div className="d-flex">
+            {/* add button */}
             <button
               type="submit"
               className="ms-auto mt-2 text-light rounded bg-success border-0 py-2 px-3"
@@ -127,6 +128,7 @@ const AddTODO = ({ show, handleClose }) => {
             >
               {!response.isPending ? "ADD" : "Loading.."}
             </button>
+            {/* close/exit button */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-secondary border-0  p-2"

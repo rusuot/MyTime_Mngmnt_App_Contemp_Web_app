@@ -35,7 +35,7 @@ const TimingPieChart = ({ data, options, type }) => {
       }
     };
   }, [data, options, type]);
-// return random colored data in pie charts
+// return random colored data in pie charts !!!!!
   return <canvas id="myChart" ref={chartRef} backgroundColor={getRandomColor()}/>;
 };
 

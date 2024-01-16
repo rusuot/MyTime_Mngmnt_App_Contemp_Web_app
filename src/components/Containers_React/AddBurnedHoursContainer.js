@@ -20,7 +20,7 @@ const AddBurnedHoursContainer = () => {
           onClick={() => setShowAddBurnedHoursModal(true)}
         >
           <Troubleshoot className={"me-1 me-md-2"} />
-          Add Burned Hours
+          Add some invested / reserved / lost hours in your schedule
         </button>
       </div>
 

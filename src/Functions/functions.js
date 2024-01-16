@@ -46,6 +46,30 @@ if (ratio === 1) {
 };
 
 
+export const getProgressBarVariant2Container = (amount, max) => {
+  // currentAvailable/freeHours
+  // current = time amount
+  // free = max
+  //  126 free from a total of 141
+
+// test calculations:
+//  If there are 126 available from 141 free hours => 0.87 => progress bar should be green as it's high percentage
+// there for getProgressBarVariantContainer logic is different from getProgressBarVariant
+
+  // const ratio = amount / max;
+  const ratio = amount / max;
+
+if (ratio === 1) {
+  return "success";
+} else if (0.1 > ratio > 0.35) {
+  return "primary";
+} else if (0.36 > ratio > 0.75) {
+  return "warning";
+}else {
+  return "danger";
+}
+};
+
 
 // retrieve error message function
 export const retrieveErrorMessage = (error) => {

@@ -28,16 +28,15 @@ const ActivityList = () => {
           documents.map((activity, idx) => {
             // returning documents list from firebase 
             return (
-
-              <Activity
+              <><Activity
                 key={idx}
                 data={activity}
                 onClick={() => {
                   setData(activity);
                   setActivity(true);
-                }}
-
-              />
+                } } /><li key={idx + 1}>
+                  Item number: {idx + 1}
+                </li></>
                          
             );
           })

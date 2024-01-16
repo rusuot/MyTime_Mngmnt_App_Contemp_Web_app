@@ -1,3 +1,4 @@
+// set imports
 import { Form, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -10,8 +11,10 @@ const UpdateTODO = ({
   handleClose,
   todo: { title, activity, currentTime, mngmntAmount, id },
 }) => {
+  // constants for firebase
   const { updateDocument, deleteDocument, response } = Firestore("mytodos");
   const { updateDocument: updateOneHistory } = Firestore("history");
+  // constant for available hours-> computed time function
   const { currentAvailableHours } = ComputeTiming();
 
   const { documents: activities, error: activitiesError } = Collection(
@@ -68,8 +71,8 @@ const UpdateTODO = ({
         updateOneHistory(
           {
             todoId: "",
-            todo: "no-todo",
-            activity: "#realburnedhours",
+            todo: "todo_task_not_set",
+            activity: "time_invested_or_reserved",
           },
           hist.id
         );
@@ -98,6 +101,7 @@ const UpdateTODO = ({
           <Modal.Title>TODO</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* title field */}
           <Form.Group className="mb-3">
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -109,6 +113,7 @@ const UpdateTODO = ({
               placeholder="For example a desired TODO task/activity"
             />
           </Form.Group>
+          {/* time reservation */}
           <Form.Group className="mb-3">
             <Form.Label>
             Max time to be reserved: (your limit is:{" "}
@@ -130,6 +135,7 @@ const UpdateTODO = ({
           </Form.Group>
 
           <Form.Label>Activity</Form.Label>
+          {/* activity selection field */}
           <Form.Select
             className="mb-3"
             name="activity"
@@ -147,6 +153,7 @@ const UpdateTODO = ({
           </Form.Select>
 
           <div className="d-flex">
+            {/* update button */}
             <button
               type="submit"
               className="ms-auto mt-2 text-light rounded bg-success border-0 p-2"
@@ -154,6 +161,7 @@ const UpdateTODO = ({
             >
               {!response.isPending ? "Update" : "Loading.."}
             </button>
+            {/* delete button */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-danger border-0 p-2"
@@ -162,6 +170,7 @@ const UpdateTODO = ({
             >
               {!response.isPending ? "Delete" : "Loading.."}
             </button>
+            {/* close/exit button */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-secondary border-0 p-2"

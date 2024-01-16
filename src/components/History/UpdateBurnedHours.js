@@ -1,3 +1,4 @@
+// imports for react, firestore db data & timing computation
 import { Form, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -10,13 +11,13 @@ const UpdateBurnedHours = ({
   handleClose,
   onehistory: { description, amount, todo, todoId, activity, id },
 }) => {
+  const { updateDocument, deleteDocument, response } =
+  Firestore("history");
   const { documents } = Collection("mytodos", ["createdAt", "desc"]);
   const { documents: activities } = Collection("activities", [
     "createdAt",
     "desc",
   ]);
-  const { updateDocument, deleteDocument, response } =
-    Firestore("history");
 
   const { updateDocument: updateTODO } = Firestore("mytodos");
   const { currentAvailableHours } = ComputeTiming();
@@ -35,17 +36,20 @@ const UpdateBurnedHours = ({
 
   const handleUpdate = (e) => {
     e.preventDefault();
-
+// Cases:
+// if todo id is none and activity is none -> raise a warning for the user to insert any
     if (form.todoId === "" && form.activity === "") {
       return toast.error("Please select a activity or todo.");
     }
-
-    // form.todoId should be "".
+// if activity is different than empty 
+// if todo id is none 
+// this will be the case to update invested/burned hours as General Spent Hours
     if (form.activity !== "" && form.todoId === "") {
-      form.todo = "no-todo";
+      form.todo = "todo_task_not_set";
 
-      // If any previuos todo.
+// but if there is any todo task
       if (todoId !== "") {
+// find the id and update todo with time
         const todo = documents.find((doc) => doc.id === todoId);
         updateTODO(
           {
@@ -56,13 +60,14 @@ const UpdateBurnedHours = ({
           todoId
         );
       }
-
-      // form.activity should be "" & form.todoId must have an ID.
-    } else if (form.todoId !== "") {
+    } 
+// if todo in FORM is different than none
+    else if (form.todoId !== "") {
+      // find todo id
       const formTODO = documents.find((doc) => doc.id === form.todoId);
       form.todo = formTODO.title;
       form.activity = formTODO.activity;
-
+// if todo id is none
       if (todoId === "") {
         updateTODO(
           {
@@ -73,12 +78,15 @@ const UpdateBurnedHours = ({
 
           form.todoId
         );
-      } else if (todoId !== "") {
-        const previousTODO = documents.find((doc) => doc.id === todoId);
-
+      } 
+// else if todo is is different than none
+      else if (todoId !== "") {
+        //  find todo id
+        const existingTODO = documents.find((doc) => doc.id === todoId);
+// and if todo id in form and todoid are equal:
         if (form.todoId === todoId) {
           const currentTime = parseInt(
-            parseInt(previousTODO.currentTime) -
+            parseInt(existingTODO.currentTime) -
               parseInt(amount) +
               parseInt(form.amount)
           );
@@ -89,19 +97,22 @@ const UpdateBurnedHours = ({
             },
             form.todoId
           );
-        } else if (form.todoId !== todoId) {
-          const previousTODO = documents.find((doc) => doc.id === todoId);
+        } 
+// else if todo id in form and todoid are not equal:
+        else if (form.todoId !== todoId) {
+          const existingTODO = documents.find((doc) => doc.id === todoId);
           const formTODO = documents.find((doc) => doc.id === form.todoId);
+// update form todo
           updateTODO(
             {
               currentTime: formTODO.currentTime + parseInt(form.amount),
             },
             form.todoId
           );
-
+// update existing task todo
           updateTODO(
             {
-              currentTime: previousTODO.currentTime - parseInt(form.amount),
+              currentTime: existingTODO.currentTime - parseInt(form.amount),
             },
             todoId
           );
@@ -115,15 +126,17 @@ const UpdateBurnedHours = ({
       return toast.error(response.error);
     }
 
-    toast.success("OneHistory updated successfully.");
+    toast.success("History was successfully updated!!!");
     handleClose();
   };
 
+  // delete
   const handleDelete = (e) => {
     e.preventDefault();
-
+// if todo id is different than none/empty
     if (todoId !== "") {
       const todo = documents.find((doc) => doc.id === todoId);
+// /update todo
       updateTODO(
         {
           currentTime: parseInt(
@@ -140,7 +153,7 @@ const UpdateBurnedHours = ({
       return toast.error(response.error);
     }
 
-    toast.success("OneHistory deleted successfully!");
+    toast.success("History was successfully deleted!!!");
     handleClose();
   };
 
@@ -148,20 +161,24 @@ const UpdateBurnedHours = ({
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const getMaximumTime = () => {
+//  compute max time limit
+  const getMaxTimingHours = () => {
+// if there is an id for todo task
     if (form.todoId !== "") {
+// find the id
       const todo = documents?.find((doc) => doc.id === form.todoId);
-
-      let maximumTime = parseInt(todo?.mngmntAmount - todo?.currentTime);
-
+// initialize variable maxtiminghours
+      let maxtiminghours = parseInt(todo?.mngmntAmount - todo?.currentTime);
+// if todo id existing & form are equal
       if (form.todoId === todoId) {
-        maximumTime = maximumTime + parseInt(amount);
+// compute max time limit
+        maxtiminghours = maxtiminghours + parseInt(amount);
       }
-      return maximumTime;
+      return maxtiminghours;
     }
     return currentAvailableHours + parseInt(amount);
   };
-
+// modals part
   return (
     <Modal show={show} onHide={handleClose}>
       <Form onSubmit={handleUpdate}>
@@ -169,6 +186,7 @@ const UpdateBurnedHours = ({
           <Modal.Title>Update BurnedHours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* description field */}
           <Form.Group className="mb-3">
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -177,18 +195,17 @@ const UpdateBurnedHours = ({
               name="description"
               value={form.description}
               onChange={handleChange}
-              placeholder="Rent of house"
+              placeholder="insert something.."
             />
           </Form.Group>
-
-
-
+          {/* todo field */}
           <Form.Group className="container .register mngmnt-btn">
             <Form.Label>TODO</Form.Label>
             <Form.Select
               name="todoId"
               onChange={handleChange}
               value={form.todoId}
+              autoFocus={form.todo}
               disabled={!form.todoId && form.activity}
             >
               <option value="">Update burned hours</option>
@@ -203,17 +220,19 @@ const UpdateBurnedHours = ({
           </Form.Group>
 
           <div className="text-secondary bg-info">(OR) - select only one option</div>
-
+          {/* activity field */}
           <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Activity</Form.Label>
+            {/* disable part of form selection (todo) if activity was set */}
             <Form.Select
               name="activity"
               onChange={handleChange}
               value={form.todoId ? "" : form.activity}
               disabled={form.todoId}
+              autoFocus={form.activity}
             >
               <option value="">Update burned hours</option>
-              <option value="#realburnedhours">RealBurnedHours</option>
+              <option value="time_invested_or_reserved">RealBurnedHours</option>
               {activities?.map((activity, idx) => {
                 return (
                   <option value={activity.code} key={idx}>
@@ -223,25 +242,26 @@ const UpdateBurnedHours = ({
               })}
             </Form.Select>
           </Form.Group>
-
+{/* Scheduled or burned hours */}
           <Form.Group className="mb-3">
             <Form.Label>
               Scheduled or burned: (your limit is:{" "}
-              <span className="text-primary">{parseInt(getMaximumTime())} hours</span>)
+              <span className="text-primary">{parseInt(getMaxTimingHours())} hours</span>)
             </Form.Label>
             <Form.Control
               type="number"
               required
               min={1}
-              max={getMaximumTime()}
+              max={getMaxTimingHours()}
               name="amount"
               value={form.amount}
-              placeholder="Enter amount..."
+              placeholder="Enter amount of hours..."
               onChange={handleChange}
             />
           </Form.Group>
 
           <div className="d-flex">
+            {/* update button  */}
             <button
               type="submit"
               className="ms-auto mt-2 text-light rounded bg-success border-0 p-2"
@@ -249,6 +269,7 @@ const UpdateBurnedHours = ({
             >
               {!response.isPending ? "Update" : "Loading.."}
             </button>
+            {/* delete button  */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-danger border-0 p-2"
@@ -257,6 +278,7 @@ const UpdateBurnedHours = ({
             >
               {!response.isPending ? "Delete" : "Loading.."}
             </button>
+            {/* close/exit button  */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-secondary border-0 p-2"

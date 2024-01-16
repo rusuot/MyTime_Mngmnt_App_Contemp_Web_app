@@ -22,7 +22,14 @@ const OneHistoryList = ({ filter }) => {
     document.body.clientHeight, document.documentElement.clientHeight
   );
 
+  // var res = document.map(({onehistory}) => ({onehistory}));
+  // console.log(res);
+
+
+
+
   const HistComp = ({ idx, onehistory }) => {
+
     return (
       <
         OneHistory
@@ -30,15 +37,18 @@ const OneHistoryList = ({ filter }) => {
         data={onehistory}
         onClick={() => {
           setData(onehistory);
-          onehistory.activity === "#yourfreehours"
+          onehistory.activity === "freetime"
             ? setShowUpdateFreeHours(true)
             : setShowUpdateBurnedHours(true);
         }}
+        
       />
+     
     );
   };
 
   return (
+
     <>
       <div className="scroll-container">
         {error && toast.error(error)}
@@ -46,26 +56,31 @@ const OneHistoryList = ({ filter }) => {
           <div className="text-center">Loading..</div>
         ) : documents?.length > 0 ? (
           documents.map((onehistory, idx) => {
+
             if (
               !filter ||
               (filter?.activity === "#all" && filter?.todo === "all")
             ) {
-              // <ul>
-              return <HistComp key={idx} onehistory={onehistory} />;
-              // </ul>
+
+              return <><HistComp key={idx} onehistory={onehistory} /><li key={idx + 1}>
+                Item number: {idx + 1}
+              </li></>;
+
             } else if (
               (filter.activity === "#all" ||
                 filter.activity === onehistory.activity) &&
               (filter.todo === "all" || filter.todo === onehistory.todo)
             ) {
-              return <HistComp key={idx} onehistory={onehistory} />;
+              return <><HistComp key={idx} onehistory={onehistory} /><li key={idx + 1}>
+                Item number: {idx + 1}
+              </li></>;
             } else {
               return <></>;
             }
           }
           )
         ) : (
-          <div className="text-center fw-bold">No History.</div>
+          <div className="text-center fw-bold">There is no history found for any activities or TODO tasks</div>
         )}
       </div>
       <UpdateFreeHours

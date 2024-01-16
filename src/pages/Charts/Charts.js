@@ -64,7 +64,7 @@ const Charts = () => {
                 >
                   <option value={"#all"}>Select My Activity Data (default: see all)</option>
 
-                  <option value={"#realburnedhours"} idx={"00"}>
+                  <option value={"time_invested_or_reserved"} idx={"00"}>
                   RealburnedHours
                   </option>
                   

@@ -10,7 +10,7 @@ const AddHours = ({ show, handleClose }) => {
   const [form, setForm] = useState({
     description: "",
     todo: "RegisterMyTime",
-    activity: "#yourfreehours",
+    activity: "freetime",
     amount: 0,
   });
 
@@ -18,7 +18,7 @@ const AddHours = ({ show, handleClose }) => {
     setForm({
       description: "",
       todo: "RegisterMyTime",
-      activity: "#yourfreehours",
+      activity: "freetime",
       amount: 0,
     });
   };
@@ -51,6 +51,7 @@ const AddHours = ({ show, handleClose }) => {
           <Modal.Title>Add Free Hours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* add day of week field */}
           <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Day of week</Form.Label>
             <Form.Control
@@ -62,6 +63,7 @@ const AddHours = ({ show, handleClose }) => {
               placeholder="For e.g. Monday"
             />
           </Form.Group>
+          {/* add hours field */}
           <Form.Group className="container .register mngmnt-btn" controlId="max">
             <Form.Label>Insert youre estimated free hours</Form.Label>
             <Form.Control
@@ -76,6 +78,7 @@ const AddHours = ({ show, handleClose }) => {
             />
           </Form.Group>
           <div className="d-flex">
+            {/* submit button: RegisterMyTime */}
             <button
               type="submit"
               className="ms-auto mt-2 text-light rounded bg-success border-0 p-2"
@@ -83,6 +86,7 @@ const AddHours = ({ show, handleClose }) => {
             >
               {!response.isPending ? "RegisterMyTime" : "Loading.."}
             </button>
+             {/* exit/close button: Close */}
             <button
               type="button"
               className="ms-3 mt-2 text-light rounded bg-secondary border-0  p-2"

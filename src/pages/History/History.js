@@ -34,10 +34,10 @@ const History = () => {
             className="py-2"
           >
             <option value={"#all"}>Check Activity</option>
-            <option value={"#yourfreehours"} idx={"01"}>
+            <option value={"freetime"} idx={"01"}>
               FreeHours
             </option>
-            <option value={"#realburnedhours"} idx={"00"}>
+            <option value={"time_invested_or_reserved"} idx={"00"}>
             RealBurnedHours
             </option>
             {activities?.map((activity, idx) => {

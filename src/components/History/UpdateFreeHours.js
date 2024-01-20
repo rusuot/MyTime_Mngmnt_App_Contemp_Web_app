@@ -76,10 +76,25 @@ const UpdateFreeHours = ({
     <Modal show={show} onHide={handleClose}>
       <Form onSubmit={handleUpdate}>
         <Modal.Header closeButton>
-          <Modal.Title>Update FreeHours</Modal.Title>
+          <Modal.Title>Update Free Hours</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* description */}
+{/*  amount of hours*/}
+<Form.Group className="container .register mngmnt-btn">
+            <Form.Label>Hours (you need to insert a no grater than:{" "} 
+              <span className="text-primary">hours{parseInt(getMinLimit())}</span>- no. is computed based on what is invested/scheduled already)</Form.Label>
+            <Form.Control
+              type="number"
+              name="amount"
+              value={form.amount}
+              required
+              min={getMinLimit()}
+              max={3000}
+              placeholder="Insert no of hours"
+              onChange={handleChange}
+            />
+          </Form.Group>
+{/* description */}
           <Form.Group className="container .register mngmnt-btn">
             <Form.Label>Day of week</Form.Label>
             <Form.Control
@@ -87,25 +102,11 @@ const UpdateFreeHours = ({
               required
               name="description"
               value={form.description}
-              onChange={handleChange}
               placeholder="For example name a week day"
-            />
-          </Form.Group>
-{/*  amount of hours*/}
-          <Form.Group className="container .register mngmnt-btn">
-            <Form.Label>Hours (you need to insert a no grater than:{" "} 
-              <span className="text-primary">hours{parseInt(getMinLimit())}</span> no is computed based on what is burned already)</Form.Label>
-            <Form.Control
-              type="number"
-              required
-              min={getMinLimit()}
-              max={3000}
-              name="amount"
-              value={form.amount}
               onChange={handleChange}
-              placeholder="Insert no of hours"
             />
           </Form.Group>
+{/* buttons part - same as in Update Burned Hours */}
 {/* update button */}
           <div className="d-flex">
             <button

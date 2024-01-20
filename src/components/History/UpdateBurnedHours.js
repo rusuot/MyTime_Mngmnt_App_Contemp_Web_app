@@ -6,6 +6,12 @@ import { Collection } from "authReactH/Collection";
 import { Firestore } from "authReactH/Firestore";
 import { ComputeTiming } from "Functions/ComputeTiming";
 
+const styles = theme => ({
+  disabledButton: {
+    backgroundColor: theme.palette.primary || 'red'
+  }
+});
+
 const UpdateBurnedHours = ({
   show,
   handleClose,
@@ -126,6 +132,7 @@ const UpdateBurnedHours = ({
       return toast.error(response.error);
     }
 
+    // success toast & close
     toast.success("History was successfully updated!!!");
     handleClose();
   };
@@ -153,6 +160,7 @@ const UpdateBurnedHours = ({
       return toast.error(response.error);
     }
 
+// success toast & close
     toast.success("History was successfully deleted!!!");
     handleClose();
   };
@@ -200,13 +208,14 @@ const UpdateBurnedHours = ({
           </Form.Group>
           {/* todo field */}
           <Form.Group className="container .register mngmnt-btn">
-            <Form.Label>TODO</Form.Label>
+            <Form.Label >TODO</Form.Label>
             <Form.Select
               name="todoId"
-              onChange={handleChange}
-              value={form.todoId}
-              autoFocus={form.todo}
+              // backgroundColor={disabled}
               disabled={!form.todoId && form.activity}
+              autoFocus={form.todo}
+              value={form.todoId}
+              onChange={handleChange}
             >
               <option value="">Update burned hours</option>
               {documents?.map((todo, idx) => {
@@ -226,10 +235,11 @@ const UpdateBurnedHours = ({
             {/* disable part of form selection (todo) if activity was set */}
             <Form.Select
               name="activity"
-              onChange={handleChange}
-              value={form.todoId ? "" : form.activity}
               disabled={form.todoId}
+              // readonly
               autoFocus={form.activity}
+              value={form.todoId ? "" : form.activity}
+              onChange={handleChange}
             >
               <option value="">Update burned hours</option>
               <option value="time_invested_or_reserved">RealBurnedHours</option>
@@ -259,7 +269,7 @@ const UpdateBurnedHours = ({
               onChange={handleChange}
             />
           </Form.Group>
-
+{/* buttons part - same as in Update Free Hours */}
           <div className="d-flex">
             {/* update button  */}
             <button

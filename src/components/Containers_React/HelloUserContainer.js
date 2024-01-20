@@ -8,6 +8,7 @@ const HelloUserContainer = () => {
 <div className="d-flex justify-content-center">
       <h5>Time Management App --- </h5>
       <h5>  Hello!</h5>
+      <h9> ( Please start by adding some free hours )</h9>
       </div>
 </div>
 

@@ -33,7 +33,7 @@ const MyTODOs = () => {
         <div className="mytodos-page-header justify-content-center align-items-center gap-2">
           <Form.Group>
             <Form.Select onChange={(e) => handleChange(e)} className="py-2">
-              <option value={"#all"}>All Activity</option>
+              <option value={"#all"}>Check activities / classes</option>
               {activities?.map((activity) => {
                 return <option value={activity.code}>{activity.description}</option>;
               })}

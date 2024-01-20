@@ -98,12 +98,12 @@ const UpdateTODO = ({
       {activitiesError && toast.error(activitiesError)}
       <Form onSubmit={handleUpdate}>
         <Modal.Header closeButton>
-          <Modal.Title>TODO</Modal.Title>
+          <Modal.Title>Update your TODO task</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {/* title field */}
           <Form.Group className="mb-3">
-            <Form.Label>Title</Form.Label>
+            <Form.Label>Task title</Form.Label>
             <Form.Control
               type="text"
               required
@@ -116,11 +116,11 @@ const UpdateTODO = ({
           {/* time reservation */}
           <Form.Group className="mb-3">
             <Form.Label>
-            Max time to be reserved: (your limit is:{" "}
+            Time limit (in hours):{" "}
               <span className="text-primary">
-                hours{parseInt(parseInt(currentAvailableHours) + parseInt(mngmntAmount))}
+                {parseInt(parseInt(currentAvailableHours) + parseInt(mngmntAmount))}
               </span>
-              )
+              
             </Form.Label>
             <Form.Control
               type="number"
@@ -134,7 +134,7 @@ const UpdateTODO = ({
             />
           </Form.Group>
 
-          <Form.Label>Activity</Form.Label>
+          <Form.Label>In activity:</Form.Label>
           {/* activity selection field */}
           <Form.Select
             className="mb-3"

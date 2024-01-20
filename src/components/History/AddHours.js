@@ -65,7 +65,7 @@ const AddHours = ({ show, handleClose }) => {
           </Form.Group>
           {/* add hours field */}
           <Form.Group className="container .register mngmnt-btn" controlId="max">
-            <Form.Label>Insert youre estimated free hours</Form.Label>
+            <Form.Label>Insert your estimated free hours</Form.Label>
             <Form.Control
               type="number"
               required

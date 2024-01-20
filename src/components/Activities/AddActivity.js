@@ -6,9 +6,23 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { Form, Modal } from "react-bootstrap";
 
+
+
+// import { doc, setDoc } from "firebase/firestore"; 
+
+// // Add a new document in collection "cities"
+// await setDoc(doc(db, "cities", "LA"), {
+//   name: "Los Angeles",
+//   state: "CA",
+//   country: "USA"
+// });
+
+
+
 // add activity, examples: studies, sports..
 const AddActivity = ({ show, handleClose }) => {
   const { addDocument, response } = Firestore("activities");
+  // const { setDocument, response2 } = Firestore("activities");
   const { documents } = Collection("activities", [
     "createdAt",
     "desc",
@@ -53,21 +67,26 @@ const AddActivity = ({ show, handleClose }) => {
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}  >
         <Modal.Header closeButton>
-          <Modal.Title>Add your desired Activity</Modal.Title>
+          <Modal.Title>Add your desired activity. Your current Uni year classes:</Modal.Title>
+
+
         </Modal.Header>
         <Modal.Body>
+        <Modal.Dialog>Contemporary Web Applications (QHO640)</Modal.Dialog>
+        <Modal.Dialog>Data Science (QHO636)</Modal.Dialog>
+        <Modal.Dialog>UX Strategies (QHO639)</Modal.Dialog>
 {/* description field */}
           <Form.Group className="mb-3">
-            <Form.Label>Description/Title</Form.Label>
+            <Form.Label>Title</Form.Label>
             <Form.Control
               type="text"
               required
               name="description"
               value={form.description}
               onChange={handleChange}
-              placeholder="for example: study time"
+              placeholder="copy & insert in here a class name or 'study'"
             />
 {/* add button */}
           </Form.Group>

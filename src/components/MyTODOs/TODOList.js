@@ -54,7 +54,7 @@ const TODOList = ({ filterActivity }) => {
           })
         ) : (
           <div className="text-center text-dark bg-light p-2 rounded w-100 fw-bold">
-            No MyTODOs.
+            There are no TODO tasks in activity/class selected.
           </div>
         )}
       </div>

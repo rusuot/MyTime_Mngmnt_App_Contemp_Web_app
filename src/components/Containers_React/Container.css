@@ -26,7 +26,7 @@
 .container .container-columnb {
   text-align: center;
   padding: 16px 0;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(11, 6, 6, 0.1);
   padding-bottom: 30px;
 }
 
@@ -56,6 +56,21 @@
   align-items: center;
   margin: 0.1rem;
 }
+
+.container .register .disabledfield{
+  padding: 50px;
+  background-color: #60dbf9;
+  border-radius: 750px;
+  display: flex;
+  /* flex-direction:row; */
+  flex-direction:column;
+  /* flex-direction:row-reverse; */
+  justify-content: center;
+  align-items: center;
+  margin: 0.1rem;
+}
+
+
 
 .container .register .mngmnt-btn:hover{
 

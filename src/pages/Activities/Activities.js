@@ -9,7 +9,7 @@ const Activities = () => {
 
   return (
     <div className="activities-page">
-      <h2 className="m-0 fw-bold text-center mb-2 mb-sm-3">Your Activities</h2>
+      <h2 className="m-0 fw-bold text-center mb-2 mb-sm-3">Your Activities/Classes</h2>
       <div className="activities-page-header d-flex justify-content-start align-items-center mb-2 mb-sm-3">
         <button
           className="activities-page-header border-0 py-2 px-3 rounded fw-bold fs-6 me-1"

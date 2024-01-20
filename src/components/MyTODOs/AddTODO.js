@@ -69,9 +69,12 @@ const AddTODO = ({ show, handleClose }) => {
       {error && toast.error(error)}
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>New TODO</Modal.Title>
+          <Modal.Title>New TODO task. You can pick from examples below</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <Modal.Dialog>Coding</Modal.Dialog>
+        <Modal.Dialog>Documentation-Research</Modal.Dialog>
+        <Modal.Dialog>Learn and exercises</Modal.Dialog>
           {/* title field */}
           <Form.Group className="mb-3">
             <Form.Label>Title</Form.Label>
@@ -81,7 +84,7 @@ const AddTODO = ({ show, handleClose }) => {
               name="title"
               onChange={handleChange}
               value={form.title}
-              placeholder="For example: QHO 640 study"
+              placeholder="copy & insert in here a task from eg above"
             />
 {/* select your toso activity */}
           <Form.Label>Select your todo activity: </Form.Label>
@@ -91,7 +94,7 @@ const AddTODO = ({ show, handleClose }) => {
             onChange={handleChange}
             value={form.activity}
           >
-            <option value={""}>Select your TODO</option>
+            <option value={""}>Select your activity for the TODO</option>
             {documents?.map((activity, idx) => {
               return (
                 <option value={activity.code} key={idx}>

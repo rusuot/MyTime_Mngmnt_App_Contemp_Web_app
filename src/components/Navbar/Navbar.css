@@ -68,7 +68,7 @@
 
 .menu-modal .modal-body a {
     border: 10px solid #2f1296;
-    background: linear-gradient(319deg, #54c5f5a6 0%, #46799a 37%, #787a96 100%);
+    background: #5d7892a6;
     border-radius: 6px;
     padding: 8px 32px;
     margin: 4px 0;
@@ -77,5 +77,5 @@
 }
 
 .menu-modal .modal-body a:hover {
-    background: linear-gradient(319deg, #c2eaba 0%, #c5f4e0 37%, #2594f6 100%);
+    background: #5d7892a6;
 }

@@ -80,7 +80,7 @@ const Login = () => {
           className="ms-3 my-2 removedata-button"
           onClick={handleRemoveData}
         >
-          RemoveData
+          Clean inserted inputs
         </button>
         <p className="text-center mt-3">
           You don't have an account?{" "}

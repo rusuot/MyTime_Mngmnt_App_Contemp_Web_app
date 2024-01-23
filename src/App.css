@@ -9,7 +9,7 @@ body {
     margin:none;
     min-height: calc(100vh - 2*50px);
     padding: 32px 32px;
-    background-image: linear-gradient(319deg, #99f5e0a6 0%, #46799a 37%, #56abecc2 100%);
+    background-image: #5d7892a6;
     color: #2f1296;
     border-radius: 50px;
 }

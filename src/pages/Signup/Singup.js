@@ -132,7 +132,7 @@ const Signup = () => {
           className="ms-3 mt-3 removedata-button"
           onClick={handleRemoveData}
         >
-          RemoveData
+          Clean inserted inputs
         </button>
       </Form>
     </div>

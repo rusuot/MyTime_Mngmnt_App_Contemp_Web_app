@@ -10,7 +10,7 @@
   margin: auto;
   height: 100%;
   padding: 32px;
-  background: #378ef8;
+  background: #519af4;
   color: #2f1296;
   border-radius: 50px;
 }
@@ -24,7 +24,7 @@
 /* App login button */
 .login-button {
   padding: 8px 10px;
-  background: #67abd8;
+  background: #8fedf8;
   color: #2f1296;
   border-radius: 6px;
   font-weight: bold;
@@ -39,8 +39,8 @@
 /* App removedata button */
 .removedata-button {
   padding: 8px 10px;
-  background-color: #ff7d51;
-  color: #fff;
+  background-color: #c6f7fb;
+  color: #060505;
   border-radius: 6px;
   font-weight: bold;
   border: 10px solid #2f1296;
@@ -58,7 +58,7 @@
 
 .register-btn {
   border: 10px solid #2f1296;
-  background: #67abd8;
+  background: #8fedf8;
   color: #2f1296;
   text-decoration: none;
   border-radius: 6px;

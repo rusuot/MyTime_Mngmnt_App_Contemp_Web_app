@@ -1,3 +1,4 @@
+// react & progres bar import & progress bar function: 
 import React from "react";
 import { ProgressBar } from "react-bootstrap";
 import { getProgressBarVariant } from "Functions/functions";
@@ -13,11 +14,10 @@ const TODO = ({
       <h5 className="m-0 fw-italic text-center mb-2 mb-sm-3">Activity name: {activity}</h5>
         <p className="mt-2 mb-2 mb-sm-3 todo-title">
 
-          {title.length >= 30 ? (
+          {title.length >= 45 ? (
             <>
-              {title.substring(0, 30)}
+              {title.substring(0, 45)}
               <span className="text-secondary">...</span>
-
             </>
           ) : (
             <h5 className="m-0 fw-italic text-center mb-2 mb-sm-3">My TODO name: {title}</h5>

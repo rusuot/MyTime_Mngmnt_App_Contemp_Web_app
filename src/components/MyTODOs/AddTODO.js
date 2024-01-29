@@ -86,7 +86,7 @@ const AddTODO = ({ show, handleClose }) => {
               value={form.title}
               placeholder="copy & insert in here a task from eg above"
             />
-{/* select your toso activity */}
+{/* select your todo activity */}
           <Form.Label>Select your todo activity: </Form.Label>
           <Form.Select
             className="mb-3"

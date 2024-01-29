@@ -4,7 +4,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useThisAuthContext } from "./authReactH/AuthContext";
-
+// imports for specified files
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import MyTODOs from "./pages/MyTODOs/MyTODOs";
@@ -14,6 +14,7 @@ import Charts from "pages/Charts/Charts";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Singup";
+import Search from "./pages/Search/Search";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             {user && <Route path="/history" element={<History />} />}
             {user && <Route path="/charts" element={<Charts />} />}
             {user && <Route path="/profile" element={<Profile />} />}
+            {user && <Route path="/search" element={<Search />} />}
 
             <Route path="/" element={<Navigate replace to="/login" />} />
             {!user && <Route path="/login" element={<Login />} />}

@@ -1,7 +1,10 @@
+// import Collection for DB stuff
 import { Collection } from "authReactH/Collection";
+// & react
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
+// & needed files
 import TimingPieChart from "./TimingPieChart";
 import PieChartData from "./PieChartDataLogic";
 

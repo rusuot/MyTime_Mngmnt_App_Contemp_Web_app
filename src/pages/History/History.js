@@ -1,3 +1,4 @@
+// set imports for Collection - DB stuff & react & file used
 import OneHistoryList from "components/History/OneHistoryList";
 import { Collection } from "authReactH/Collection";
 import React, { useState } from "react";

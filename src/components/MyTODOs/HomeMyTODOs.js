@@ -8,7 +8,6 @@ const HomeMyTODOs = () => {
     <>
       <div className="mytodos-header">
       {/* <div className="home .mytodos .todo"> */}
-      
         <h6 className="mytodos-header-title"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

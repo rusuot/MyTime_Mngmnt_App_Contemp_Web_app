@@ -1,3 +1,4 @@
+// import Collection for DB, react & used pages
 import { Collection } from "authReactH/Collection";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -30,7 +31,8 @@ const TODOList = ({ filterActivity }) => {
                   onClick={() => {
                     setData(todo);
                     setShowTODOModal(true);
-                  } } /><li key={idx + 1}>
+                  } } />
+                  <li key={idx + 1}>
                     Item number: {idx + 1}
                   </li></>
 
@@ -44,7 +46,8 @@ const TODOList = ({ filterActivity }) => {
                   onClick={() => {
                     setData(todo);
                     setShowTODOModal(true);
-                  } } /><li key={idx + 1}>
+                  } } />
+                  <li key={idx + 1}>
                     Item number: {idx + 1}
                   </li></>
               );

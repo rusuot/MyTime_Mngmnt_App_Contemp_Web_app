@@ -1,14 +1,17 @@
 // set imports
+// bootstrap
 import Nav from "react-bootstrap/Nav";
 import Navbarr from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import NavItems from "./NavItems";
+import Container from "react-bootstrap/Container";
+// react
 import { Link } from "react-router-dom";
 import { useState } from "react";
+// from my files
 import { MenuIcon } from "../../Icons/Icons";
 import { useThisAuthContext } from "../../authReactH/AuthContext";
-import Container from "react-bootstrap/Container";
+import NavItems from "./NavItems";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);

@@ -46,6 +46,16 @@
     max-width: 2048px;
 }
 
+.inputfield {
+  display: table;
+  gap: 30px;
+
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 200px;
+}
+
+
 .activity-list .activity {
     background-color: rgb(173, 222, 222);
     border-radius: 80px;

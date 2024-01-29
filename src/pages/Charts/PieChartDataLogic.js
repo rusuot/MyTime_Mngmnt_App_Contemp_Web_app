@@ -19,6 +19,7 @@ const PieChartData = (filter) => {
   const [freeHistData, setFreeHistData] = useState({
     LabelArray: [],
     DataArray: [],
+    // used for random coloring
     ColorArray: [],
   });
   const [burnedHistData, setBurnedHistData] = useState({

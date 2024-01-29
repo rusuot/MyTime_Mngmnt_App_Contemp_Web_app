@@ -1,9 +1,13 @@
+// react imports
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+// imports from specified files
 import TODOList from "components/MyTODOs/TODOList";
 import AddTODO from "components/MyTODOs/AddTODO";
+// import Collection - DB stuff
 import { Collection } from "authReactH/Collection";
-import { toast } from "react-toastify";
+
 
 const MyTODOs = () => {
   const [showTODOModal, setShowTODOModal] = useState(false);

@@ -33,6 +33,8 @@ const UpdateTODO = ({
     setForm({ title, activity, mngmntAmount, currentTime });
   }, [title, activity, mngmntAmount, currentTime]);
 
+
+  // handle Update
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -54,7 +56,6 @@ const UpdateTODO = ({
       });
     }
 
-    // Response Object
     updateDocument({ ...form, currentTime: parseInt(form.currentTime) ,mngmntAmount: parseInt(form.mngmntAmount) }, id);
     if (response.error) {
       return toast.error(response.error);
@@ -63,6 +64,8 @@ const UpdateTODO = ({
     toast.success("TODO updated successfully!");
     handleClose();
   };
+
+  // handle Delete
   const handleDelete = (e) => {
     e.preventDefault();
 
@@ -88,6 +91,8 @@ const UpdateTODO = ({
     toast.success("TODO deleted successfully!");
     handleClose();
   };
+
+  // handle Change
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

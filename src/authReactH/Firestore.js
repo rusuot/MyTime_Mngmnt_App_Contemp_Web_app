@@ -9,6 +9,7 @@ import {
   query,
   where,
   getDoc,
+  getDocs,
   addDoc,
   deleteDoc,
   updateDoc,
@@ -31,6 +32,14 @@ const firestoreReducer = (
   ) => {
     // switch case mechanism (6 cases)
   switch (action.type) {
+        // search document
+        case "SEARCH_A_DOCUMENT":
+          return {
+            isPending: false,
+            document: action.payload,
+            success: true,
+            error: null,
+          };
     // get document
     case "GET_A_DOCUMENT":
       return {
@@ -127,18 +136,63 @@ export const Firestore = (firestoreCollection) => {
     try {
       const q = query(ref, where("id", "==", id))
       const querySnapshot = await getDoc(q);
-      const getedDocument = querySnapshot.data()
+      const retrievedDocument = querySnapshot.data()
 
-      console.log(getedDocument)
+      console.log(retrievedDocument)
       dispatchIfNotCancelled({
         type: "GET_A_DOCUMENT",
-        payload: getedDocument,
+        payload: retrievedDocument,
       });
     } catch (err) {
       dispatchIfNotCancelled({ type: "ERROR", payload: err.message });
       console.log(err)
     }
   };
+
+  // logic for: search a document
+  const searchDocument = async (name) => {
+    console.log("JS Firestore page *****");
+    dispatch({ type: "IS_PENDING" });
+
+    try {
+      // const q = query(ref, where("name", "==", name))
+      // const q = query(ref, where("name", 'array-contains-any', name))
+      const q = query(ref, where("name", "==", name).get())
+      console.log("query to be run is:", q);
+      // used getDocs (plural) to get more that one single doc
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+
+        console.log(doc.id, " => ", doc.data());
+      });
+
+
+
+      // const querySnapshot = await getDocs(q);
+      // 
+// querySnapshot.forEach((doc) => {
+//   // doc.data() is never undefined for query doc snapshots
+//   console.log(doc.name, " => ", doc.data());
+// });
+
+//
+
+      const retrievedDocument = querySnapshot
+
+      console.log(retrievedDocument)
+      dispatchIfNotCancelled({
+        type: "SEARCH_A_DOCUMENT",
+        payload: retrievedDocument,
+      });
+    } catch (err) {
+      dispatchIfNotCancelled({ type: "ERROR", payload: err.message });
+      console.log(err)
+    }
+  };
+
+
+
 
   // logic for: update a document
   const updateDocument = async (newdoc, id) => {
@@ -189,6 +243,7 @@ export const Firestore = (firestoreCollection) => {
     addDocument, 
     updateDocument, 
     deleteDocument, 
+    searchDocument,
     response 
   };
 };

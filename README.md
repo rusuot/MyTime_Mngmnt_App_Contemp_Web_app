@@ -5,6 +5,7 @@
 - https://contemporary-web-app-6f54f.web.app
 - https://contemporary-web-app-6f54f.firebaseapp.com
 
+
 ## My GitHub link: [to be added - the last repo created]
 ### Student Name: Rusu Ovidiu Tiberiu
 ### Student ID: 10179295
@@ -21,6 +22,9 @@ What I have used for this project:
 - [Dillinger](https://dillinger.io/)
 
 ## Installation
+> Note: `There are two approaches: either the Firebase data that I tried to include in GIT is used, or Firebase details needs to be updated with your personal` 
+> Note: `For using my files for Firebase, please update firebase folder name with prefix "." as of course it's a hidden folder and I was needed to rename it to be able to upload this to GIT. So, instead of "firebase" folder please rename it into: ".firebase" in Visual Code` 
+
 Steps to follow for project installation:
 1. Download the zip from GIT link: (need node.js)
 2. Open Visual Code, open folder downloaded unzipped folder at step 1
@@ -28,7 +32,7 @@ Steps to follow for project installation:
 ```sh
 npm install
 ```
-4. If the downloaded unzipped file does not contain in root folder the .env.dev file, this needs to be created with following:
+4. If the downloaded unzipped file does not contain in root folder the .env.dev file, this needs to be created with following details in the root folder:
 ```sh
 // environment variables (used for my firebase connection)
 REACT_APP_API_KEY="AIzaSyD3nEy7eJOLfygUpe2JrCFzb-VkxZc05Fk"
@@ -38,12 +42,13 @@ REACT_APP_STORAGE_BUCKET="contemporary-web-app-6f54f.appspot.com"
 REACT_APP_MESSAGING_SENDER_ID="G-7SM38NPZGH"
 REACT_APP_APP_ID="1:815549909710:web:ef50f861e9674f7368de9f"
 ```
+If you choose to use your personal Firebase api_key, auth_domain and so on, you need to update those values in my react app env variables. Below Firebase steps are detailed to be followed.
 
 5. Firebase 
-6. Note: this is needed if firebase files are not in unzipped folder / expired
-Create an account into [Firebase](https://console.firebase.google.com/)
-Into "Your Firebase projects", select "+" sign to "Add project"
-Register Web application on Firebase.
+Note: this is needed if firebase files are not in unzipped folder / expired, or you choosed to use your personal ones.
+- Create an account into [Firebase](https://console.firebase.google.com/)
+- Into "Your Firebase projects", select "+" sign to "Add project"
+- Register Web application on Firebase.
 From here, you'll have access to firebase configs.
 E.g.:
 
@@ -91,11 +96,11 @@ service cloud.firestore {
     match /{document=**} {
       allow read, write: if request.auth != null; }}}
 ```
-> Note: `This Firebase db creation must be followed if my values does not work, I'll try to keep them saved in GIT.` 
+> Note: `This Firebase db creation must be followed if my values does not work, I'll try to keep them saved in GIT. /or if you choosed to use your personal ones` 
 
 
 
-Having all set, run now th time managemnet application:
+Having all set related to Firebase, run now the students time managemnet web application:
 1. In Visual Code, where you have the folder unzipped & .env.dev file set with Firebase open Terminal
 2. Run next command:
 ```sh
@@ -107,7 +112,7 @@ npm run start
 - toast: "Error! Hint: Firebase indexes might not be created yet!!! The data can not be fetched. "
 - Error in F12: "FirebaseError: The query requires an index. You can create it here: ..." 
 Select the url from all 3 errors received in order to create the 3 needed indexes in Firebase DB: mytodos, activities, history.
-Once they are successfully created will have the status: Enabled
+Once they are successfully created will have the status: Enabled (in Firebase website)
 Something similar with (in firebase website):
 ```sh
 Collection ID	Fields indexed
@@ -116,11 +121,14 @@ mytodos	user Ascending createdAt Descending __name__ Descending	Collection		Enab
 history	user Ascending createdAt Descending __name__ Descending	Collection		Enabled	
 activities	user Ascending createdAt Descending __name__ Descending	Collection		Enabled
 ```
-5. Now you can use the Time Management App.
+5. Now you can use the Time Management App, as you wish.
+Hint: 
+- my user: 1@1.com
+- my password: 1234567
 
 ## Firebase Hosting
 1. In Firebase website, in left pane, under Project shortcuts, select "Hosting" and click on "Get started".
-2. Firebase Hosting provides next commands to be run in VC terminal:
+2. Firebase Hosting provides next commands to be run in Visual Code terminal:
 ```sh
 npm install -g firebase-tools
 ```
@@ -156,17 +164,22 @@ Project Console: https://console.firebase.google.com/project/contemporary-web-ap
 Hosting URL: https://contemporary-web-app-6f54f.web.app
 ```
 
-Notes from Firebase Hosting:
-I have selected Go To Console, and in:
+Notes/troubleshooting from Firebase Hosting:
+
+----
+- Where are Firebase Hosting details for website hosted?:
+I have selected "Go To Console" in Firebase Hosting website, and in:
 https://console.firebase.google.com/project/contemporary-web-app-6f54f/hosting/sites/contemporary-web-app-6f54f
 In left pane, under Projects Shortcuts, in Hosting I have "Mange Site" Dashboard with:
-
 contemporary-web-app-6f54f.web.app
 contemporary-web-app-6f54f.firebaseapp.com
+----
 
+- Notes:  When I was running firebase deploy command in Visual Code Terminal, when I was asked about folder to be choosed: default is givven: (public) but I've put "build" folder. I for firebase deploy!!!
+As a short hint: have the exactly same content for index.html in both /public and /build folder.
+- Firebase Hosting should run without any issues, as the time expiration is set for the end of february, but I will extend as days go by (there is a limit of 30 days), you should not have any issues even with my Firebase details.
 
-Notes:  I selected build instead of public in firebase deploy!!!(on firebase website)
-History of commands in Visual Terminal that might help:
+- History of commands in Visual Terminal that might help:
   27 history
   28 npm run build:deploy
   29 firebase deploy

@@ -25,7 +25,6 @@ What I have used for this project:
 
 ## Installation
 > Note: `There are two approaches: either the Firebase data that I tried to include in GIT is used, or Firebase details needs to be updated with your personal`
-> 
 > Note: `For using my files for Firebase, please update firebase folder name with prefix "." as of course it's a hidden folder and I was needed to rename it to be able to upload this to GIT. 
 So, instead of "firebase" folder please rename it into:".firebase" in Visual Code` 
 

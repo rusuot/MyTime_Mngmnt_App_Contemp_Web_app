@@ -188,3 +188,11 @@ As a short hint: have the exactly same content for index.html in both /public an
   - firebase init
   - firebase deploy
 ---
+
+#### Time Management App - Happy flow scenario
+1. Open App
+2. Login (Signup first if you don't have an account)
+3. Add some free hours from Home App
+4. Add an activity (think about activities as courses from University, hints are also provided in app). Currently activities/courses hints reflect the 3rd University year.
+5. Add some TO-DO tasks (pick an activity/course) and link the TO-DO task to that activity.
+6. Add some invested/burned hours from Home App, as you invest hours in that specific task

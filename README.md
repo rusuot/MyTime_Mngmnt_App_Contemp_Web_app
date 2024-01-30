@@ -167,7 +167,7 @@ Project Console: https://console.firebase.google.com/project/contemporary-web-ap
 Hosting URL: https://contemporary-web-app-6f54f.web.app
 ```
 
-Notes/troubleshooting from Firebase Hosting:
+####Notes/troubleshooting from Firebase Hosting:
 
 ----
 - Where are Firebase Hosting details for website hosted?:

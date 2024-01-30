@@ -102,7 +102,7 @@ service cloud.firestore {
 > Note: `This Firebase db creation must be followed if my values does not work, I'll try to keep them saved in GIT. /or if you choosed to use your personal ones` 
 
 
-
+## Start the App
 Having all set related to Firebase, run now the students time managemnet web application:
 1. In Visual Code, where you have the folder unzipped & .env.dev file set with Firebase open Terminal
 2. Run next command:

@@ -7,7 +7,7 @@
 
 
 ## My GitHub official/clean link: [to be added - the last repo created]
-## My GitHub history link: [to be added - the last repo created]
+## My GitHub history link:  https://github.com/rusuot/MyTime_Mngmnt_App_Contemp_Web_app
 I have worked on a separate repo as I'm facing some issues with pushing commits directly from Visual Code, hence each time I'm uploading files in GIT.
 ### Student Name: Rusu Ovidiu Tiberiu
 ### Student ID: 10179295

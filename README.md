@@ -6,7 +6,9 @@
 - https://contemporary-web-app-6f54f.firebaseapp.com
 
 
-## My GitHub link: [to be added - the last repo created]
+## My GitHub official/clean link: [to be added - the last repo created]
+## My GitHub history link: [to be added - the last repo created]
+I have worked on a separate repo as I'm facing some issues with pushing commits directly from Visual Code, hence each time I'm uploading files in GIT.
 ### Student Name: Rusu Ovidiu Tiberiu
 ### Student ID: 10179295
 
@@ -180,9 +182,8 @@ As a short hint: have the exactly same content for index.html in both /public an
 - Firebase Hosting should run without any issues, as the time expiration is set for the end of february, but I will extend as days go by (there is a limit of 30 days), you should not have any issues even with my Firebase details.
 
 - History of commands in Visual Terminal that might help:
-  27 history
-  28 npm run build:deploy
-  29 firebase deploy
-  30 firebase init
-  31 firebase deploy
+  - npm run build:deploy
+  - firebase deploy
+  - firebase init
+  - firebase deploy
 ---

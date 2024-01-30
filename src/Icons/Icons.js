@@ -4,23 +4,15 @@
 // react import
 import React from "react";
 
-// menu icon displayed in navbar
-export const MenuIcon = ({ className }) => {
-  return <span className={"material-symbols-outlined " + className}>menu</span>;
-};
 
-export const Troubleshoot = ({ className }) => {
-  return (
-    <span className={"material-symbols-outlined " + className}>troubleshoot</span>
-  );
-};
-
+// calendar clock icon
 export const CalendarClock = ({ className }) => {
   return (
     <span className={"material-symbols-outlined " + className}>calendar_clock</span>
   );
 };
 
+// icon for table chart
 export const TableChartViewIcon = ({ className }) => {
   return (
     <span className={"material-symbols-outlined " + className}>
@@ -29,6 +21,7 @@ export const TableChartViewIcon = ({ className }) => {
   );
 };
 
+// mini icon for info
 export const InfoIcon = ({ className }) => {
   return (
 <span class="material-symbols-outlined">
@@ -37,7 +30,7 @@ info
   );
 };
 
-
+// icon for delete-recycle bin
 export const DeleteIcon = ({ className }) => {
   return (
 <span class="material-symbols-outlined">
@@ -45,6 +38,20 @@ delete
 </span>
   );
 };
+
+// menu icon displayed in navbar
+export const MenuIcon = ({ className }) => {
+  return <span className={"material-symbols-outlined " + className}>menu</span>;
+};
+
+// icon for troubleshoot
+export const Troubleshoot = ({ className }) => {
+  return (
+    <span className={"material-symbols-outlined " + className}>troubleshoot</span>
+  );
+};
+
+
 
 
 

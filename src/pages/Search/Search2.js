@@ -1,4 +1,4 @@
-// tried search function
+// tried search function without /search navigation
 
 // // get search bar element
 // const searchInput = document.getElementById("searchInput");

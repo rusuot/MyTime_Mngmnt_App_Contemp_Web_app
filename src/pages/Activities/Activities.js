@@ -7,6 +7,7 @@ import AddActivity from "components/Activities/AddActivity";
 const Activities = () => {
   const [displayAddActivity, setAddActivity] = useState(false);
 
+  // stylying classes: activities-page & activities-page-header
   return (
     <div className="activities-page">
       <h2 className="m-0 fw-bold text-center mb-2 mb-sm-3">Your Activities/Classes</h2>

@@ -115,6 +115,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
               name="todo"
               onChange={handleChange}
               value={form.todo}
+              // property used in form to disable one option or another
               disabled={form.activity !== ""}
             >
               <option value="todo_task_not_set">Please expand for your TODOs</option>
@@ -136,6 +137,7 @@ const AddBurnedHoursModal = ({ show, handleClose }) => {
               name="activity"
               onChange={handleChange}
               value={form.activity}
+              // property used in form to disable one option or another
               disabled={form.todo !== "todo_task_not_set"}
             >
               <option value="">Please expand for activity burned hours</option>

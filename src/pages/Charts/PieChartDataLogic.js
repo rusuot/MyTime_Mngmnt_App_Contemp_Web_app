@@ -16,18 +16,23 @@ function getRandomColor() {
 // pie chart data: label & data & random color
 //  set this for both free and invested/scheduled hours
 const PieChartData = (filter) => {
+  // declare constant for free hours
   const [freeHistData, setFreeHistData] = useState({
+    // used for pie chart labels
     LabelArray: [],
+    // date in pie chart label
     DataArray: [],
     // used for random coloring
     ColorArray: [],
   });
+    // declare constant for burned/scheduled hours
   const [burnedHistData, setBurnedHistData] = useState({
     LabelArray: [],
     DataArray: [],
     ColorArray: [],
   });
   const [isLoading, setIsLoading] = useState(true);
+  
   const { documents } = Collection("history", ["createdAt", "desc"]);
   const [docLength, setDocLength] = useState(0);
 

@@ -35,8 +35,6 @@ const TODOList = ({ filterActivity }) => {
                   <li key={idx + 1}>
                     Item number: {idx + 1}
                   </li></>
-
-
               );
             } else if (filterActivity === todo.activity) {
               return (

@@ -48,8 +48,11 @@ function App() {
             newestOnTop={false}
             closeOnClick
             rtl={false}
+            // toast to be displayed in top center of the page
             position="top-center"
+            // toast to be closed in 5000 milliseconds
             autoClose={5000}
+            // limit toast popups to 3, as user must be able to read them
             limit={3}
             theme="colored"
             // theme="dark"
